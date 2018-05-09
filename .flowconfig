@@ -1,0 +1,11 @@
+[ignore]
+.*/node_modules/.*
+.*/templates/.*
+
+[include]
+src/**/*.js
+
+[libs]
+flow-typed/npm
+
+[options]

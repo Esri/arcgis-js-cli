@@ -1,0 +1,79 @@
+{
+  "name": "arcgis-cli",
+  "version": "4.7.0",
+  "description": "",
+  "main": "dist/index.js",
+  "bin": {
+    "arcgis": "./dist/index.js"
+  },
+  "scripts": {
+    "precommit": "lint-staged",
+    "prepare": "npm run -s build",
+    "clean": "rimraf dist",
+    "test": "npm run clean && jest --coverage",
+    "build": "npm run clean && npm run flow && babel src -d dist -D --ignore '*.test.js, **/__mocks__/'",
+    "dev": "npm run clean && npm run build && jest --watch",
+    "flow": "flow",
+    "pretty": "prettier 'src/**/*.js' --write"
+  },
+  "files": [
+    "dist"
+  ],
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "keywords": [],
+  "author": "Rene Rubalcava <rrubalcava@esri.com>",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.2.1",
+    "babel-preset-flow": "^6.23.0",
+    "eslint": "^4.16.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-flowtype": "^2.42.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "flow-bin": "^0.70.0",
+    "husky": "^0.14.3",
+    "jest-cli": "^22.1.4",
+    "lint-staged": "^7.0.4",
+    "prettier": "^1.10.2",
+    "prettier-eslint": "^8.8.1",
+    "rimraf": "^2.6.2"
+  },
+  "dependencies": {
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "chalk": "^2.3.0",
+    "command-exists": "^1.2.2",
+    "cross-spawn-promise": "^0.10.1",
+    "del": "^3.0.0",
+    "download-git-repo": "^1.0.2",
+    "fs-extra": "^5.0.0",
+    "fs.promised": "^3.0.0",
+    "inquirer": "^5.0.1",
+    "live-server": "^1.2.0",
+    "lodash.camelcase": "^4.3.0",
+    "lodash.startcase": "^4.4.0",
+    "mkdirp": "^0.5.1",
+    "ora": "^2.0.0",
+    "pkg-dir": "^2.0.0",
+    "promise-polyfill": "^7.0.2",
+    "promisify-node": "^0.4.0",
+    "prompt": "^1.0.0",
+    "ramda": "^0.25.0",
+    "recursive-copy": "^2.0.8",
+    "request": "^2.83.0",
+    "request-promise-native": "^1.0.5",
+    "yargs": "^11.0.0"
+  }
+}

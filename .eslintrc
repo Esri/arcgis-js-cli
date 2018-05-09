@@ -1,0 +1,15 @@
+{
+  "extends": [
+    "standard",
+    "plugin:flowtype/recommended"
+  ],
+  "plugins": [
+    "flowtype",
+    "prettier-eslint"
+  ],
+  "rules": {
+    "quotes": ["error", "double", { "avoidEscape": true, "allowTemplateLiterals": true }],
+    "semi": ["error", "always"],
+    "brace-style": ["error", "stroustrup", { "allowSingleLine": true }]
+  }
+}

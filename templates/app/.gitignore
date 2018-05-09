@@ -1,0 +1,16 @@
+node_modules/*
+.vscode/*
+build/*
+dist/*
+html-report/*
+~tmp/*
+.baseDir*
+.tsdrc
+.tscache
+npm-debug.log
+yarn.lock
+package-lock.json
+coverage-final.*
+.firebaserc
+firebase.json
+firebase-debug.log
