@@ -1,4 +1,4 @@
-# @esri/arcgis-jsapi-cli
+# @arcgis/cli
 
 This CLI will allow you to quickly scaffold various applications for the [ArcGIS API for JavaScript](https://developers.arcgis.com/javascript/).
 
