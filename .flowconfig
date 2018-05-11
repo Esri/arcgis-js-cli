@@ -3,7 +3,7 @@
 .*/templates/.*
 
 [include]
-src/**/*.js
+src
 
 [libs]
 flow-typed/npm

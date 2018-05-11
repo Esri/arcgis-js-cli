@@ -46,14 +46,14 @@
     "test": "webpack --config=webpack.tests.config.js --mode=development && intern"
   },
   "lint-staged": {
-    "*.{ts,tsx, js}": [
+    "*.{ts,tsx,js}": [
       "prettier --write",
       "tslint --fix",
       "git add"
     ]
   },
   "dependencies": {
-    "@arcgis/webpack-plugin": "^4.7.2"
+    "@arcgis/webpack-plugin": "^4.7.5"
   },
   "arcgis": {
     "type": "jsapi"

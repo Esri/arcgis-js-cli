@@ -8,6 +8,7 @@ import { tsx } from "esri/widgets/support/widget";
 
 import FeatureLayer = require("esri/layers/FeatureLayer");
 import EsriMap = require("esri/Map");
+import MapView = require("esri/views/MapView");
 import Widget = require("esri/widgets/Widget");
 
 import AppViewModel, { AppParams } from "./App/AppViewModel";
@@ -47,7 +48,7 @@ export default class App extends declared(Widget) {
   }
 
   private onAfterCreate(element: HTMLDivElement) {
-    import("./../utils/data").then(({ featureLayer, map, MapView }) => {
+    import("./../data/app").then(({ featureLayer, map }) => {
       this.featureLayer = featureLayer;
       this.map = map;
       this.view = new MapView({

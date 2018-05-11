@@ -62,7 +62,10 @@ module.exports = {
         use: [
           MiniCssExtractPlugin.loader,
           "css-loader",
-          "resolve-url-loader",
+          {
+            loader: "resolve-url-loader",
+            options: { includeRoot: true }
+          },
           "sass-loader?sourceMap"
         ]
       }
