@@ -18,23 +18,24 @@ From NPM
 
 In a terminal, run: 
 
-`arcgis`
+`arcgis --help`
 
 This will output the following: 
 
-```
+```sh
 Usage: arcgis <name> [dest] -t <type>
 
 Commands:
   arcgis create <name> [dest]  Create a new application.
   arcgis init [type]           Initialize a new application in current directory
   arcgis widget <name> [type]  Create a new Widget.
-
-Options:
-  --version   Show version number                                      [boolean]
-  -h, --help  Show help                                                [boolean]
 ```
+
 ## Features
+
+
+Create a new application
+
 ```sh
 $ arcgis create <name> [dest]
 
@@ -46,15 +47,35 @@ Options:
   --dest      Directory to create the application in           [default: <name>]
   --type, -t  A project template           [choices: "jsapi"] [default: "jsapi"]
   -h, --help  Show help                                                [boolean]
+  -h, --help  Show help                                                [boolean]
 
-$ arcgis init
---type, -t  A project template
-    [choices: "jsapi"] [default: "jsapi"]
+```
 
-$ arcgis widget
+Initialize a new application in current directory
+
+```sh
+$ arcgis init [type]
+
+Initialize a new application in current directory
+
+Options:
+  --version   Show version number                                      [boolean]
+  --type, -t  A project template           [choices: "jsapi"] [default: "jsapi"]
+  -h, --help  Show help                                                [boolean]
+```
+
+Create a new widget
+
+```sh
+$ arcgis widget <name> [type]
+
+Create a new Widget.
+
+Options:
+  --version   Show version number                                      [boolean]
   --name, -n  Name of new widget
-  --type, -t  A widget template          [choices: "jsapi"] [default: "jsapi"]
-
+  --type, -t  A widget template            [choices: "jsapi"] [default: "jsapi"]
+  -h, --help  Show help                                                [boolean]
 ```
 
 ## Template Application
