@@ -47,7 +47,6 @@ Options:
   --dest      Directory to create the application in           [default: <name>]
   --type, -t  A project template           [choices: "jsapi"] [default: "jsapi"]
   -h, --help  Show help                                                [boolean]
-  -h, --help  Show help                                                [boolean]
 
 ```
 
