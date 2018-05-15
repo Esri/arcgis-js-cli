@@ -26,7 +26,8 @@
     "pretty": "prettier 'src/**/*.js' --write"
   },
   "files": [
-    "dist"
+    "dist",
+    "templates"
   ],
   "lint-staged": {
     "*.js": [
