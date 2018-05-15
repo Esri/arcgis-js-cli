@@ -6,6 +6,15 @@
   "bin": {
     "arcgis": "./dist/index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/esri/arcgis-js-cli.git"
+  },
+  "keywords": [
+    "esri",
+    "arcgis",
+    "cli"
+  ],
   "scripts": {
     "precommit": "lint-staged",
     "prepare": "npm run -s build",
@@ -28,7 +37,6 @@
   "jest": {
     "testEnvironment": "node"
   },
-  "keywords": [],
   "author": "Rene Rubalcava <rrubalcava@esri.com>",
   "license": "Apache-2.0",
   "devDependencies": {
