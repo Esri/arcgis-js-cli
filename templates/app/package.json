@@ -53,7 +53,7 @@
     ]
   },
   "dependencies": {
-    "@arcgis/webpack-plugin": "^4.7.7"
+    "@arcgis/webpack-plugin": "^4.7.9"
   },
   "arcgis": {
     "type": "jsapi"

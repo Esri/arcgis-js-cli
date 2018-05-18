@@ -1,5 +1,7 @@
 import "./config";
 
+import "@dojo/shim/Promise";
+
 import App from "./widgets/app";
 
 /**
