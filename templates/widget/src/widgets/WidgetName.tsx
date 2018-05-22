@@ -1,10 +1,7 @@
-/// <amd-dependency path="esri/core/tsSupport/declareExtendsHelper" name="__extends" />
-/// <amd-dependency path="esri/core/tsSupport/decorateHelper" name="__decorate" />
-
 import { aliasOf, declared, property, subclass } from "esri/core/accessorSupport/decorators";
 import { renderable, tsx } from "esri/widgets/support/widget";
 
-import Widget = require("esri/widgets/Widget");
+import Widget from "esri/widgets/Widget";
 
 import <%name%>ViewModel from "./<%name%>/<%name%>ViewModel";
 
