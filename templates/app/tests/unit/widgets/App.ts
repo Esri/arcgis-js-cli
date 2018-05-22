@@ -1,9 +1,9 @@
 const { suite, test } = intern.getInterface("tdd");
 const { assert } = intern.getPlugin("chai");
 
-import FeatureLayer = require("esri/layers/FeatureLayer");
-import EsriMap = require("esri/Map");
-import MapView = require("esri/views/MapView");
+import FeatureLayer from "esri/layers/FeatureLayer";
+import EsriMap from "esri/Map";
+import MapView from "esri/views/MapView";
 
 import App from "../../../src/widgets/App";
 

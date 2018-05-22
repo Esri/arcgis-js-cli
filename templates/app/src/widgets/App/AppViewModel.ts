@@ -1,15 +1,16 @@
-/// <amd-dependency path="esri/core/tsSupport/declareExtendsHelper" name="__extends" />
-/// <amd-dependency path="esri/core/tsSupport/decorateHelper" name="__decorate" />
-
-import Accessor = require("esri/core/Accessor");
+import Accessor from "esri/core/Accessor";
 import { whenOnce } from "esri/core/watchUtils";
-import FeatureLayer = require("esri/layers/FeatureLayer");
-import EsriMap = require("esri/Map");
-import MapView = require("esri/views/MapView");
-import Expand = require("esri/widgets/Expand");
-import Search = require("esri/widgets/Search");
+import FeatureLayer from "esri/layers/FeatureLayer";
+import EsriMap from "esri/Map";
+import MapView from "esri/views/MapView";
+import Expand from "esri/widgets/Expand";
+import Search from "esri/widgets/Search";
 
-import { declared, property, subclass } from "esri/core/accessorSupport/decorators";
+import {
+  declared,
+  property,
+  subclass
+} from "esri/core/accessorSupport/decorators";
 
 export interface AppParams {
   appName: string;

@@ -1,15 +1,17 @@
-/// <amd-dependency path="esri/core/tsSupport/declareExtendsHelper" name="__extends" />
-/// <amd-dependency path="esri/core/tsSupport/decorateHelper" name="__decorate" />
-
 import esri = __esri;
 
-import { aliasOf, declared, property, subclass } from "esri/core/accessorSupport/decorators";
+import {
+  aliasOf,
+  declared,
+  property,
+  subclass
+} from "esri/core/accessorSupport/decorators";
 import { tsx } from "esri/widgets/support/widget";
 
-import FeatureLayer = require("esri/layers/FeatureLayer");
-import EsriMap = require("esri/Map");
-import MapView = require("esri/views/MapView");
-import Widget = require("esri/widgets/Widget");
+import FeatureLayer from "esri/layers/FeatureLayer";
+import EsriMap from "esri/Map";
+import MapView from "esri/views/MapView";
+import Widget from "esri/widgets/Widget";
 
 import AppViewModel, { AppParams } from "./App/AppViewModel";
 

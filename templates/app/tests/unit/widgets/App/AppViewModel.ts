@@ -3,9 +3,9 @@ const { assert } = intern.getPlugin("chai");
 
 import { stub } from "sinon";
 
-import FeatureLayer = require("esri/layers/FeatureLayer");
-import EsriMap = require("esri/Map");
-import MapView = require("esri/views/MapView");
+import FeatureLayer from "esri/layers/FeatureLayer";
+import EsriMap from "esri/Map";
+import MapView from "esri/views/MapView";
 
 import AppViewModel from "../../../../src/widgets/App/AppViewModel";
 

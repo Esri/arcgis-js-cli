@@ -1,7 +1,7 @@
-import FeatureLayer = require("esri/layers/FeatureLayer");
-import TileLayer = require("esri/layers/TileLayer");
-import VectorTileLayer = require("esri/layers/VectorTileLayer");
-import EsriMap = require("esri/Map");
+import FeatureLayer from "esri/layers/FeatureLayer";
+import TileLayer from "esri/layers/TileLayer";
+import VectorTileLayer from "esri/layers/VectorTileLayer";
+import EsriMap from "esri/Map";
 
 export const featureLayer = new FeatureLayer({
   portalItem: {
