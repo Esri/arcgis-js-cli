@@ -1,5 +1,14 @@
 # @arcgis/cli
 
+[![npm version][npm-img]][npm-url]
+[![build status][travis-img]][travis-url]
+[![apache licensed](https://img.shields.io/badge/license-Apache%202.0-orange.svg?style=flat-square)](https://raw.githubusercontent.com/Esri/arcgis-js-cli/master/LICENSE)
+
+[npm-img]: https://img.shields.io/npm/v/@arcgis/cli.svg?style=flat-square
+[npm-url]: https://www.npmjs.com/package/@arcgis/cli
+[travis-img]: https://img.shields.io/travis/Esri/arcgis-js-cli/master.svg?style=flat-square
+[travis-url]: https://travis-ci.org/Esri/arcgis-js-cli
+
 This CLI will allow you to quickly scaffold various applications for the [ArcGIS API for JavaScript](https://developers.arcgis.com/javascript/).
 
 ## Usage
