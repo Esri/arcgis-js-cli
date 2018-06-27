@@ -3,15 +3,12 @@ import Accessor from "esri/core/Accessor";
 import { declared, property, subclass } from "esri/core/accessorSupport/decorators";
 
 @subclass("widgets.<%name%>.<%name%>ViewModel")
-class <%name%>ViewModel extends declared(Accessor) {
+export default class <%name%>ViewModel extends declared(Accessor) {
 
-  @property()
-  name = "Slagathor";
+  @property() name = "Slagathor";
 
-  constructor() {
+  constructor(params?: any) {
     super();
   }
 
 }
-
-export default <%name%>ViewModel;

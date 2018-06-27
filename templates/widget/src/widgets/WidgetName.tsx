@@ -1,4 +1,9 @@
-import { aliasOf, declared, property, subclass } from "esri/core/accessorSupport/decorators";
+import {
+  aliasOf,
+  declared,
+  property,
+  subclass
+} from "esri/core/accessorSupport/decorators";
 import { renderable, tsx } from "esri/widgets/support/widget";
 
 import Widget from "esri/widgets/Widget";
@@ -10,7 +15,7 @@ const CSS = {
 };
 
 @subclass("widgets.<%name%>")
-class <%name%> extends declared(Widget) {
+export default class <%name%> extends declared(Widget) {
 
   @aliasOf("viewModel.name")
   @renderable()
@@ -19,7 +24,8 @@ class <%name%> extends declared(Widget) {
   @property({
     type: <%name%>ViewModel
   })
-  viewModel= new <%name%>ViewModel();
+  @renderable()
+  viewModel: <%name%>ViewModel = new <%name%>ViewModel();
 
   render() {
     return (
@@ -32,5 +38,3 @@ class <%name%> extends declared(Widget) {
   }
 
 }
-
-export = <%name%>;
