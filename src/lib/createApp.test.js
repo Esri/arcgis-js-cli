@@ -38,6 +38,7 @@ test("Will write files and run installer", async () => {
   };
   const spinner = {
     start: jest.fn(),
+    stop: jest.fn(),
     succeed: jest.fn(() => {
       return new Promise((resolve, reject) => {
         process.nextTick(() => resolve());
@@ -45,7 +46,7 @@ test("Will write files and run installer", async () => {
     })
   };
 
-  await createApp({ argv, spinner });
+  await createApp({ argv });
   expect(fsp.writeFile).toBeCalled();
   expect(installer).toBeCalled();
 });

@@ -1,14 +1,4 @@
-/* eslint spaced-comment:0 */
-/* global jest */
-
-const succeed = jest.fn((...args) => {
-  return new Promise((resolve, reject) => {
-    process.nextTick(() => resolve());
-  });
-});
-
-const ora = jest.fn(args => {
-  /*
+/*
   Copyright 2018 Esri
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -21,12 +11,23 @@ const ora = jest.fn(args => {
   limitations under the License.
 */
 
+/* eslint spaced-comment:0 */
+/* global jest */
+
+const succeed = jest.fn((...args) => {
+  return new Promise((resolve, reject) => {
+    process.nextTick(() => resolve());
+  });
+});
+
+const ora = jest.fn().mockImplementation(args => {
   ora.__text = args.text;
   return {
     start: jest.fn(() => {
       return {
         info() {},
         start() {},
+        stop() {},
         fail() {},
         get text() {
           return ora.__text;
@@ -37,6 +38,7 @@ const ora = jest.fn(args => {
         succeed
       };
     }),
+    stop() {},
     succeed,
     fail() {}
   };

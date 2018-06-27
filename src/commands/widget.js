@@ -12,113 +12,13 @@
 */
 
 // @flow
-import ora from "ora";
-import path from "path";
-import fse from "fs-extra";
-import del from "del";
-import { yellow } from "chalk";
-import camelCase from "lodash.camelcase";
-import startCase from "lodash.startcase";
-import copy from "recursive-copy";
-import pkgDir from "pkg-dir";
+import chalk from "chalk";
 
-import { compose, map, replace, toLower } from "ramda";
-
-import readDirR from "../lib/readDirR";
+import createWidget from "../lib/createWidget";
 
 type WidgetArgs = {
   name: string,
   type: string
-};
-
-const normalize: string => string = compose(
-  replace(/\s/g, ""),
-  startCase,
-  camelCase
-);
-const nameTplLower: string => string => string = compose(
-  replace(/<%name-lower%>/g),
-  toLower
-);
-
-const nameTpl: string => string => string = replace(/<%name%>/g);
-
-const copyUpdateFiles = (files, name): Promise<any> => {
-  const nameUpdate = compose(nameTpl(name), nameTplLower(name));
-  const widgetName = replace(/WidgetName/g)(name);
-  const updateFiles = map(filename => {
-    let updatedFileName = widgetName(filename);
-    return fse
-      .copy(filename, updatedFileName)
-      .then(() => {
-        return fse.readFile(filename, "utf-8");
-      })
-      .then(file => {
-        const updatedFile = nameUpdate(file);
-        return fse.writeFile(updatedFileName, updatedFile);
-      });
-  });
-  return Promise.all(updateFiles(files));
-};
-
-const cleanDirectories = async (target, dest, tests) => {
-  await del(`${target}/tests/unit/widgets/WidgetName.tsx`);
-  await del(`${target}/tests/unit/widgets/WidgetName/**`);
-  await del(`${target}/src/widgets/WidgetName.tsx`);
-  await del(`${target}/src/widgets/WidgetName/**`);
-
-  await copy(`${target}/src/`, dest + "/");
-  await copy(`${target}/tests/`, tests + "/");
-
-  return del(`${target}/**`);
-};
-
-const createWidget = async ({ argv }) => {
-  const spinner = ora({
-    text: `Scaffolding new widget - ${argv.name}`,
-    color: "green"
-  }).start();
-
-  let pkg = null;
-
-  try {
-    pkg = JSON.parse(
-      await fse.readFile(path.resolve(process.cwd(), "package.json"))
-    );
-    if (!pkg || (pkg && pkg.arcgis.type !== "jsapi")) {
-      spinner.fail(
-        "The `widget` command can only be used in an `jsapi` type app scaffolded with 'arcgis-js-cli'"
-      );
-      return Promise.reject(
-        new Error(
-          "The `widget` command can only be used in an `jsapi` type app scaffolded with 'arcgis-js-cli'"
-        )
-      );
-    }
-  } catch (err) {
-    /* let it fail! */
-  }
-
-  const target = path.resolve(process.cwd(), "tmp");
-  const dest = path.resolve(process.cwd(), "src");
-  const tests = path.resolve(process.cwd(), "tests");
-  const name = normalize(argv.name);
-
-  try {
-    const rootDir = await pkgDir(__dirname);
-    await fse.copy(`${rootDir}/templates/widget`, target, {
-      filter: (s, d) => !s.includes("DS_Store")
-    });
-    spinner.text = yellow("Updating widget...");
-    await copyUpdateFiles(readDirR(target), name);
-    await cleanDirectories(target, dest, tests);
-    await spinner.succeed("Done!\n");
-  } catch (error) {
-    spinner.fail(`Widget creation failed: ${error.message}`);
-    return Promise.reject(
-      new Error(`Widget creation failed: ${error.message}`)
-    );
-  }
 };
 
 const widget = {
@@ -139,7 +39,9 @@ const widget = {
   },
 
   async handler(argv: WidgetArgs) {
+    console.info(chalk.underline("Creating Widget Template"));
     await createWidget({ argv });
+    console.info(chalk.green.bold("Widget template installed!"));
   }
 };
 

@@ -12,14 +12,16 @@
 */
 
 // @flow
+import chalk from "chalk";
 import path from "path";
 import fse from "fs-extra";
 import fsp from "fs.promised";
 import fs from "fs";
 import commandExists from "command-exists";
-import installer from "./installer";
+
 import download from "./downloadAsync";
-import pkgDir from "pkg-dir";
+import copyTemplate from "./copyTemplate";
+import depsInstall from "./depsInstall";
 
 const fallbackPkgString = (name: string) => `
   {
@@ -31,27 +33,15 @@ const fallbackPkgString = (name: string) => `
 
 type Options = {
   argv: any,
-  spinner: any,
   init?: boolean
 };
 
-const createApp = async ({ argv, spinner, init = false }: Options) => {
-  let target: string;
-  if (!init) {
-    target = path.resolve(process.cwd(), argv.dest || argv.name);
-    if (!fs.existsSync(target)) {
-      fs.mkdirSync(target);
-    }
-  } else {
-    target = path.resolve(process.cwd());
-  }
-  spinner.text = "Installing template application...";
-  try {
-    const rootDir = await pkgDir(__dirname);
-    await fse.copy(`${rootDir}/templates/app`, target);
-  } catch (error) {}
+const createApp = async ({ argv, init = false }: Options) => {
+  console.info(chalk.underline("Preparing Application Directory"));
 
-  spinner.succeed("ArcGIS Application template installed.");
+  const target = await copyTemplate(argv, init);
+
+  console.info(chalk.green.bold("ArcGIS Application template installed."));
 
   let pkg = null;
   let pkgString = null;
@@ -70,17 +60,15 @@ const createApp = async ({ argv, spinner, init = false }: Options) => {
       path.resolve(target, "package.json"),
       JSON.stringify(pkg, null, 2)
     );
-    spinner.start("Installing dependencies, this could take a while...");
-    try {
-      await installer(target, "npm", ["install"]);
-    } catch (error) {
-      // use npm if not
-      spinner.fail("Oops, something went wrong...");
-    }
-  }
 
-  await spinner.succeed(
-    "Done! You're ArcGIS JSAPI application has been installed!\n"
+    console.info(chalk.underline("\nRunning npm install"));
+
+    await depsInstall(target);
+  }
+  console.info(
+    chalk.green.bold(
+      "Done! You're ArcGIS JSAPI application has been installed!\n"
+    )
   );
 };
 

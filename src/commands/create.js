@@ -14,7 +14,7 @@
 // @flow
 import ora from "ora";
 import inquirer from "inquirer";
-import { blue, cyan } from "chalk";
+import chalk from "chalk";
 import { prop } from "ramda";
 
 import createApp from "../lib/createApp";
@@ -25,10 +25,6 @@ type CreatArgs = {
   dest?: string,
   type: string
 };
-const spinner = ora({
-  text: "ArcGIS CLI",
-  spinner: "earth"
-});
 
 const create = {
   command: "create <name> [dest]",
@@ -52,12 +48,11 @@ const create = {
   },
 
   async handler(argv: CreatArgs) {
-    spinner.start();
-    spinner.text = `Creating ArcGIS project - ${argv.name}`;
+    console.info(chalk.underline(`Creating ArcGIS project: ${argv.name}\n`));
     if (argv.type === "jsapi") {
-      return await createApp({ argv, spinner });
+      return await createApp({ argv });
     } else {
-      await spinner.fail(`Unknown app template "${argv.type}.\n`);
+      console.info(chalk.red(`Unknown app template "${argv.type}.\n`));
       return Promise.reject(new Error(`Unknown app template "${argv.type}.`));
     }
   }
