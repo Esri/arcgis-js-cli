@@ -36,6 +36,12 @@ const copyTemplate = async (arg: Args, init: boolean = false) => {
   }
   try {
     const rootDir = await pkgDir(__dirname);
+    // for some reason, I see .gitignore renamed to .npmignore
+    // I don't even know, so force copy it
+    await fse.copy(
+      `${rootDir}/templates/app/.gitignore`,
+      `${target}/.gitignore`
+    );
     await fse.copy(`${rootDir}/templates/app`, target);
   } catch (error) {}
 
