@@ -36,14 +36,40 @@ const copyTemplate = async (arg: Args, init: boolean = false) => {
   }
   try {
     const rootDir = await pkgDir(__dirname);
-    // for some reason, I see .gitignore renamed to .npmignore
-    // I don't even know, so force copy it
+    await fse.copy(`${rootDir}/templates/app/src`, `${target}/src`);
+    await fse.copy(`${rootDir}/templates/app/tests`, `${target}/tests`);
     await fse.copy(
-      `${rootDir}/templates/app/.gitignore`,
+      `${rootDir}/templates/app/intern.json`,
+      `${target}/intern.json`
+    );
+    await fse.copy(
+      `${rootDir}/templates/app/package.json`,
+      `${target}/package.json`
+    );
+    await fse.copy(`${rootDir}/templates/app/README.md`, `${target}/README.md`);
+    await fse.copy(
+      `${rootDir}/templates/app/tsconfig.json`,
+      `${target}/tsconfig.json`
+    );
+    await fse.copy(
+      `${rootDir}/templates/app/tslint.json`,
+      `${target}/tslint.json`
+    );
+    await fse.copy(
+      `${rootDir}/templates/app/webpack.config.js`,
+      `${target}/webpack.config.js`
+    );
+    await fse.copy(
+      `${rootDir}/templates/app/webpack.tests.config.js`,
+      `${target}/webpack.tests.config.js`
+    );
+    await fse.copy(
+      `${rootDir}/templates/app/gitignore`,
       `${target}/.gitignore`
     );
-    await fse.copy(`${rootDir}/templates/app`, target);
-  } catch (error) {}
+  } catch (error) {
+    console.info(error.message);
+  }
 
   return target;
 };
