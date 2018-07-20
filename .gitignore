@@ -3,6 +3,5 @@ dist/*
 ~tmp/*
 coverage/*
 .vscode/*
-package-lock.json
 yarn.lock
 .DS_Store
