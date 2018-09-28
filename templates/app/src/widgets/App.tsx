@@ -24,7 +24,7 @@ const CSS = {
   webmap: "webmap"
 };
 
-@subclass("app.widgets.webmapview")
+@subclass("app.widgets.App")
 export default class App extends declared(Widget) {
   @property() viewModel = new AppViewModel();
 
@@ -34,7 +34,7 @@ export default class App extends declared(Widget) {
 
   @aliasOf("viewModel.map") map: EsriMap;
 
-  @aliasOf("viewModel.view") view: __esri.MapView;
+  @aliasOf("viewModel.view") view: MapView;
 
   constructor(params: Partial<AppViewParams>) {
     super(params);

@@ -1,7 +1,7 @@
 import FeatureLayer from "esri/layers/FeatureLayer";
 import TileLayer from "esri/layers/TileLayer";
 import VectorTileLayer from "esri/layers/VectorTileLayer";
-import EsriMap from "esri/Map";
+import ArcGISMap from "esri/Map";
 
 export const featureLayer = new FeatureLayer({
   portalItem: {
@@ -12,7 +12,7 @@ export const featureLayer = new FeatureLayer({
   opacity: 0.8
 });
 
-export const map = new EsriMap({
+export const map = new ArcGISMap({
   basemap: {
     baseLayers: [
       new TileLayer({

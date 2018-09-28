@@ -1,6 +1,6 @@
 import "./config";
 
-import "@dojo/shim/Promise";
+import "@dojo/framework/shim/Promise";
 
 import App from "./widgets/App";
 
@@ -8,6 +8,6 @@ import App from "./widgets/App";
  * Initialize application
  */
 export const app = new App({
-  appName: "Demo App",
+  appName: "Template App",
   container: document.getElementById("app") as HTMLElement
 });

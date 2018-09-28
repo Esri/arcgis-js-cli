@@ -14,7 +14,7 @@ const CSS = {
   base: "esri-widget <%name-lower%>-base"
 };
 
-@subclass("widgets.<%name%>")
+@subclass("app.widgets.<%name%>")
 export default class <%name%> extends declared(Widget) {
 
   @aliasOf("viewModel.name")
