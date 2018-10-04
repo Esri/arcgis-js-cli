@@ -67,7 +67,7 @@ const createApp = async ({ argv, init = false }: Options) => {
   }
   console.info(
     chalk.green.bold(
-      "Done! You're ArcGIS JSAPI application has been installed!\n"
+      "Done! Your ArcGIS JSAPI application has been installed!\n"
     )
   );
 };
