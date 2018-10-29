@@ -23,6 +23,7 @@ global.Promise = require("promise-polyfill");
 
 /* eslint no-unused-expressions: 0 */
 yargs
+  .scriptName("arcgis")
   .command(create)
   .command(init)
   .command(widget)
