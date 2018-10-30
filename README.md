@@ -112,7 +112,7 @@ Run a production build of the application, but serve it up locally to see how th
 npm run serve
 ```
 
-Use `npm run serve` to full test that Service Workers are working correctly with `webpack-dev-server` self signed certifcates. Refer to [this article](https://deanhume.com/testing-service-workers-locally-with-self-signed-certificates/) on how to run Chrome with proper flags enabled for development purposes.
+Use `npm run serve` to full test that Service Workers are working correctly with `webpack-dev-server` self signed certificates. Refer to [this article](https://deanhume.com/testing-service-workers-locally-with-self-signed-certificates/) on how to run Chrome with proper flags enabled for development purposes.
 
 ## Issues
 Find a bug or want to request a new feature enhancement?  Let us know by submitting an issue.
