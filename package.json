@@ -70,7 +70,7 @@
     "fs-extra": "^5.0.0",
     "fs.promised": "^3.0.0",
     "inquirer": "^5.0.1",
-    "live-server": "^1.2.0",
+    "live-server": "^1.2.1",
     "lodash.camelcase": "^4.3.0",
     "lodash.startcase": "^4.4.0",
     "mkdirp": "^0.5.1",
