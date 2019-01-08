@@ -1,9 +1,9 @@
 {
-  "name": "jsapi-4.9-test",
+  "name": "jsapi-4.10-template-app",
   "version": "0.0.1",
   "devDependencies": {
     "@theintern/istanbul-loader": "^1.0.0-beta.2",
-    "@types/arcgis-js-api": "~4.8.0",
+    "@types/arcgis-js-api": "~4.10.0",
     "@types/sinon": "^4.3.1",
     "clean-webpack-plugin": "^0.1.19",
     "copy-webpack-plugin": "^4.5.2",
@@ -54,7 +54,7 @@
     ]
   },
   "dependencies": {
-    "@arcgis/webpack-plugin": "~4.9.0"
+    "@arcgis/webpack-plugin": "~4.10.0"
   },
   "arcgis": {
     "type": "jsapi"
