@@ -23,6 +23,8 @@ type Args = {
   dest?: string
 };
 
+const BASIC = "templates/basic";
+
 const copyTemplate = async (arg: Args, init: boolean = false) => {
   let target: string;
   if (!init) {
@@ -36,37 +38,34 @@ const copyTemplate = async (arg: Args, init: boolean = false) => {
   }
   try {
     const rootDir = await pkgDir(__dirname);
-    await fse.copy(`${rootDir}/templates/app/src`, `${target}/src`);
-    await fse.copy(`${rootDir}/templates/app/tests`, `${target}/tests`);
+    await fse.copy(`${rootDir}/${BASIC}/app/src`, `${target}/src`);
+    await fse.copy(`${rootDir}/${BASIC}/app/tests`, `${target}/tests`);
     await fse.copy(
-      `${rootDir}/templates/app/intern.json`,
+      `${rootDir}/${BASIC}/app/intern.json`,
       `${target}/intern.json`
     );
     await fse.copy(
-      `${rootDir}/templates/app/package.json`,
+      `${rootDir}/${BASIC}/app/package.json`,
       `${target}/package.json`
     );
-    await fse.copy(`${rootDir}/templates/app/README.md`, `${target}/README.md`);
+    await fse.copy(`${rootDir}/${BASIC}/app/README.md`, `${target}/README.md`);
     await fse.copy(
-      `${rootDir}/templates/app/tsconfig.json`,
+      `${rootDir}/${BASIC}/app/tsconfig.json`,
       `${target}/tsconfig.json`
     );
     await fse.copy(
-      `${rootDir}/templates/app/tslint.json`,
+      `${rootDir}/${BASIC}/app/tslint.json`,
       `${target}/tslint.json`
     );
     await fse.copy(
-      `${rootDir}/templates/app/webpack.config.js`,
+      `${rootDir}/${BASIC}/app/webpack.config.js`,
       `${target}/webpack.config.js`
     );
     await fse.copy(
-      `${rootDir}/templates/app/webpack.tests.config.js`,
+      `${rootDir}/${BASIC}/app/webpack.tests.config.js`,
       `${target}/webpack.tests.config.js`
     );
-    await fse.copy(
-      `${rootDir}/templates/app/gitignore`,
-      `${target}/.gitignore`
-    );
+    await fse.copy(`${rootDir}/${BASIC}/app/gitignore`, `${target}/.gitignore`);
   } catch (error) {
     console.info(error.message);
   }

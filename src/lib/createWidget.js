@@ -61,7 +61,7 @@ const createWidget = async ({ argv }: any) => {
 
   try {
     const rootDir = await pkgDir(__dirname);
-    await fse.copy(`${rootDir}/templates/widget`, target, {
+    await fse.copy(`${rootDir}/templates/basic/widget`, target, {
       filter: (s, d) => !s.includes("DS_Store")
     });
     await copyUpdateFiles(readDirR(target), name);
