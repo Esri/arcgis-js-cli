@@ -45,33 +45,6 @@ const copyTemplate = async (arg: Args, init: boolean = false) => {
   try {
     const rootDir = await pkgDir(__dirname);
     await fse.copy(`${rootDir}/${templateDirectory}`, `${target}`);
-    // await fse.copy(`${rootDir}/${templateDirectory}/app/tests`, `${target}/tests`);
-    // await fse.copy(
-    //   `${rootDir}/${BASIC}/app/intern.json`,
-    //   `${target}/intern.json`
-    // );
-    // await fse.copy(
-    //   `${rootDir}/${BASIC}/app/package.json`,
-    //   `${target}/package.json`
-    // );
-    // await fse.copy(`${rootDir}/${BASIC}/app/README.md`, `${target}/README.md`);
-    // await fse.copy(
-    //   `${rootDir}/${BASIC}/app/tsconfig.json`,
-    //   `${target}/tsconfig.json`
-    // );
-    // await fse.copy(
-    //   `${rootDir}/${BASIC}/app/tslint.json`,
-    //   `${target}/tslint.json`
-    // );
-    // await fse.copy(
-    //   `${rootDir}/${BASIC}/app/webpack.config.js`,
-    //   `${target}/webpack.config.js`
-    // );
-    // await fse.copy(
-    //   `${rootDir}/${BASIC}/app/webpack.tests.config.js`,
-    //   `${target}/webpack.tests.config.js`
-    // );
-    // await fse.copy(`${rootDir}/${BASIC}/app/gitignore`, `${target}/.gitignore`);
   } catch (error) {
     console.info(error.message);
   }
