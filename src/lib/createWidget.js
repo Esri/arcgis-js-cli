@@ -41,12 +41,12 @@ const createWidget = async ({ argv }: any) => {
     if (!pkg || (pkg && pkg.arcgis.type !== "jsapi")) {
       console.info(
         chalk.red.bold(
-          "The `widget` command can only be used in an `jsapi` type app scaffolded with 'arcgis-js-cli'\n"
+          "The `widget` command can only be used in a `jsapi` type app scaffolded with 'arcgis-js-cli'\n"
         )
       );
       return Promise.reject(
         new Error(
-          "The `widget` command can only be used in an `jsapi` type app scaffolded with 'arcgis-js-cli'"
+          "The `widget` command can only be used in a `jsapi` type app scaffolded with 'arcgis-js-cli'"
         )
       );
     }
