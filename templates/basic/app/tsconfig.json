@@ -29,6 +29,6 @@
     "moment"
   ],
   "include": [
-    "src/*"
+    "src/**/*"
   ]
 }

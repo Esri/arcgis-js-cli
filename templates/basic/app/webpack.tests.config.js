@@ -2,8 +2,6 @@ const path = require("path");
 
 const ArcGISPlugin = require("@arcgis/webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: {
@@ -40,7 +38,7 @@ module.exports = {
     ]
   },
 
-  plugins: [new CleanWebpackPlugin(["~tmp"]), new ArcGISPlugin()],
+  plugins: [new CleanWebpackPlugin(), new ArcGISPlugin()],
 
   node: {
     process: false,

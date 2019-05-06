@@ -2,18 +2,17 @@
   "comments": false,
   "presets": [
     [
-      "env",
+      "@babel/preset-env",
       {
         "loose": true,
         "targets": {
-          "node": 4
+          "node": "current"
         },
         "exclude": [
           "transform-regenerator"
         ]
       }
     ],
-    "stage-0",
-    "flow"
+    "@babel/preset-flow"
   ]
 }
