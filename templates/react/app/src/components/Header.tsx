@@ -1,13 +1,13 @@
-import React from "react"
+import React from 'react';
 
 interface HeaderProps {
-  appTitle: string
+    appTitle: string;
 }
 
 export const Header = ({ appTitle }: HeaderProps) => {
-  return (
-    <header className="header">
-      <span>{appTitle}</span>
-    </header>
-  )
-}
+    return (
+        <header className="header">
+            <span>{appTitle}</span>
+        </header>
+    );
+};

@@ -1,33 +1,18 @@
-import React, { useContext, useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef } from 'react';
 
-import { AppContext } from "../contexts/App";
+import { AppContext } from '../contexts/App';
 
 const WebMapView = () => {
-  const mapRef = useRef<HTMLDivElement>(null);
-  const { setState } = useContext(AppContext);
-  
-  let mounted = false;
-  // we can let the application
-  // context know that the component
-  // is mounted and ready
-  useEffect(
-    () => {
-      mounted = true;
-      setState({
-        mounted,
-        container: mapRef.current
-      });
-      return () => {
-        mounted = false;
-      };
-    },
-    [ mapRef.current ]
-  );
+    const mapRef = useRef<HTMLDivElement>(null);
+    const { setContainer } = useContext(AppContext);
 
-  return (
-    <div className="webmap" ref={mapRef}>
-    </div>
-  );
+    // we can let the application context
+    // know that the component is ready
+    useEffect(() => {
+        setContainer(mapRef.current);
+    }, [mapRef.current]);
+
+    return <div className="webmap" ref={mapRef} />;
 };
 
 export { WebMapView };
