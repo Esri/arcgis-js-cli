@@ -20,7 +20,7 @@
     "prepare": "npm run -s build",
     "clean": "rimraf dist",
     "test": "npm run clean && jest --coverage",
-    "build": "npm run clean && npm run flow && babel src -d dist -D --ignore '*.test.js, **/__mocks__/'",
+    "build": "npm run clean && npm run flow && babel src -d dist -D --ignore '*.test.js,**/__mocks__/'",
     "dev": "npm run clean && npm run build && jest --watch",
     "flow": "flow",
     "pretty": "prettier 'src/**/*.js' --write"
