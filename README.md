@@ -54,7 +54,7 @@ Options:
   --version   Show version number                                      [boolean]
   --name, -n  directory and package name for the new app
   --dest      Directory to create the application in           [default: <name>]
-  --type, -t  A project template           [choices: "jsapi"] [default: "jsapi"]
+  --type, -t  A project template           [choices: "jsapi". "react"] [default: "jsapi"]
   -h, --help  Show help                                                [boolean]
 
 ```
@@ -68,7 +68,7 @@ Initialize a new application in current directory
 
 Options:
   --version   Show version number                                      [boolean]
-  --type, -t  A project template           [choices: "jsapi"] [default: "jsapi"]
+  --type, -t  A project template           [choices: "jsapi", "react"] [default: "jsapi"]
   -h, --help  Show help                                                [boolean]
 ```
 

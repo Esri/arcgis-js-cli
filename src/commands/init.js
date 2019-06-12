@@ -20,7 +20,10 @@ import { compose, last, prop, split } from "ramda";
 import createApp from "../lib/createApp";
 import fetchRepos from "../lib/fetchRepos";
 
-const currentDirectory: string => any | string = compose(last, split("/"));
+const currentDirectory: string => any | string = compose(
+  last,
+  split("/")
+);
 
 type InitArgs = {
   type: string,
@@ -34,7 +37,7 @@ const init = {
     type: {
       alias: "t",
       describe: "A project template",
-      choices: ["jsapi"],
+      choices: ["jsapi", "react"],
       demandOption: false,
       default: "jsapi"
     }
