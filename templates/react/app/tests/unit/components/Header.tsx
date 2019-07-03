@@ -3,7 +3,7 @@
 const { afterEach, describe, it } = intern.getPlugin("interface.bdd");
 const { expect } = intern.getPlugin("chai");
 import React from "react"
-import { cleanup, render } from "react-testing-library";
+import { cleanup, render } from "@testing-library/react";
 
 import { Header } from "../../../src/components/Header";
 

@@ -1,7 +1,7 @@
 const path = require('path');
 
 const ArcGISPlugin = require('@arcgis/webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
@@ -82,6 +82,12 @@ module.exports = {
         new CleanWebpackPlugin(),
         new ArcGISPlugin({
             useDefaultAssetLoaders: false,
+            features: {
+                '3d': false,
+                has: {
+                    'esri-native-promise': true,
+                },
+            },
         }),
         new MiniCssExtractPlugin({
             filename: '[name].[chunkhash].css',

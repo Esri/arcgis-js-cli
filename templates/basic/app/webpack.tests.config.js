@@ -1,7 +1,7 @@
 const path = require("path");
 
 const ArcGISPlugin = require("@arcgis/webpack-plugin");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   entry: {
@@ -38,7 +38,17 @@ module.exports = {
     ]
   },
 
-  plugins: [new CleanWebpackPlugin(), new ArcGISPlugin()],
+  plugins: [
+    new CleanWebpackPlugin(),
+    new ArcGISPlugin({
+      features: {
+        "3d": false,
+        has: {
+          "esri-native-promise": true
+        }
+      }
+    })
+  ],
 
   node: {
     process: false,

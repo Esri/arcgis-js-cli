@@ -1,5 +1,5 @@
 const ArcGISPlugin = require('@arcgis/webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
@@ -113,6 +113,12 @@ module.exports = function(_, arg) {
 
             new ArcGISPlugin({
                 useDefaultAssetLoaders: false,
+                features: {
+                    '3d': false,
+                    has: {
+                        'esri-native-promise': true,
+                    },
+                },
             }),
 
             new HtmlWebPackPlugin({

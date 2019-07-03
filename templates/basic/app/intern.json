@@ -1,10 +1,14 @@
+
 {
+  "capabilities": {
+    "fixSessionCapabilities": "no-detect"
+  },
   "environments": [
     {
       "browserName": "chrome",
-      "chromeOptions": { "args": [ "headless", "disable-gpu" ] },
-      "fixSessionCapabilities": "no-detect"
+      "chromeOptions": { "args": [ "headless", "window-size=1024,768" ] }
     }
   ],
+  "filterErrorStack": true,
   "suites": "~tmp/tests.js"
 }

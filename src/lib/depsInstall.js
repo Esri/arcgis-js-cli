@@ -28,6 +28,14 @@ const depsInstall = async (target: any) => {
   } catch (error) {
     spinner.fail("Oops, something went wrong...");
   }
+
+  try {
+    await installer(target, "git", ["init"]);
+    await installer(target, "git", ["add", "."]);
+    await installer(target, "git", ["commit", "-m", "'first commit'"]);
+  } catch (error) {
+    spinner.fail("git unavailable");
+  }
   spinner.stop(chalk.green.bold(" completed"));
   return Promise.resolve();
 };
