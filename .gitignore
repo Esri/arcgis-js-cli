@@ -5,3 +5,4 @@ coverage/*
 .vscode/*
 yarn.lock
 .DS_Store
+~redcup
