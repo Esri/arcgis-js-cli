@@ -36,7 +36,9 @@
         "git add"
       ]
     },
-    "ignore": ["templates/*"]
+    "ignore": [
+      "templates/*"
+    ]
   },
   "jest": {
     "testEnvironment": "node"

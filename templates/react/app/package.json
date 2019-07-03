@@ -48,7 +48,7 @@
     "test": "webpack --config=webpack.tests.config.js --mode=development && intern"
   },
   "dependencies": {
-    "@arcgis/webpack-plugin": "~4.11.0",
+    "@arcgis/webpack-plugin": "~4.12.0",
     "react": "^16.8.1",
     "react-dom": "^16.8.1"
   },
