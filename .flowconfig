@@ -8,4 +8,8 @@ src
 [libs]
 flow-typed/npm
 
+[lints]
+
 [options]
+
+[strict]

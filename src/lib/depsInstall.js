@@ -13,30 +13,26 @@
 
 // @flow
 import chalk from "chalk";
-import ora from "ora";
 import installer from "./installer";
 
 const depsInstall = async (target: any) => {
-  const spinner = ora({
-    text: "ArcGIS CLI",
-    spinner: "earth"
-  });
-
-  spinner.start("Installing dependencies, this could take a while...");
-  try {
-    await installer(target, "npm", ["install"]);
-  } catch (error) {
-    spinner.fail("Oops, something went wrong...");
-  }
-
+  console.info(chalk.green.bold("Initializing git repository"));
   try {
     await installer(target, "git", ["init"]);
     await installer(target, "git", ["add", "."]);
     await installer(target, "git", ["commit", "-m", "'first commit'"]);
   } catch (error) {
-    spinner.fail("git unavailable");
+    console.info(chalk.red.bold("git unavailable"));
   }
-  spinner.stop(chalk.green.bold(" completed"));
+  console.info(
+    chalk.green.bold("Installing dependencies, this could take a while...")
+  );
+  try {
+    await installer(target, "npm", ["install"]);
+  } catch (error) {
+    console.info(chalk.red.bold("Oops, something went wrong..."));
+  }
+  console.info(chalk.green.bold("Dependencies completed"));
   return Promise.resolve();
 };
 

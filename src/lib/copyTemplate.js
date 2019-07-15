@@ -45,6 +45,10 @@ const copyTemplate = async (arg: Args, init: boolean = false) => {
   try {
     const rootDir = await pkgDir(__dirname);
     await fse.copy(`${rootDir}/${templateDirectory}`, `${target}`);
+    await fse.copy(
+      `${rootDir}/${templateDirectory}/.gitignore`,
+      `${target}/.gitignore`
+    );
   } catch (error) {
     console.info(error.message);
   }
