@@ -170,6 +170,10 @@ module.exports = function(_, arg) {
         },
     };
 
+    if (arg.mode === 'development') {
+        config.devtool = 'source-map';
+    }
+
     if (arg.mode === 'production') {
         config.plugins.push(
             new WorkboxPlugin.GenerateSW({
