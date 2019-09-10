@@ -40,6 +40,18 @@ Commands:
   arcgis widget <name> [type]  Create a new Widget.
 ```
 
+## Quick Start
+
+> default template application
+```sh
+arcgis create jsapi-app
+```
+
+> react template application
+```sh
+arcgis create jsapi-react-app -t react
+```
+
 ## Features
 
 
