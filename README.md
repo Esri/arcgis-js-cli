@@ -52,6 +52,11 @@ arcgis create jsapi-app
 arcgis create jsapi-react-app -t react
 ```
 
+> vue template application
+```sh
+arcgis create jsapi-vue-app -t vue
+```
+
 ## Features
 
 
@@ -66,7 +71,7 @@ Options:
   --version   Show version number                                      [boolean]
   --name, -n  directory and package name for the new app
   --dest      Directory to create the application in           [default: <name>]
-  --type, -t  A project template           [choices: "jsapi". "react"] [default: "jsapi"]
+  --type, -t  A project template           [choices: "jsapi". "react", "vue"] [default: "jsapi"]
   -h, --help  Show help                                                [boolean]
 
 ```
