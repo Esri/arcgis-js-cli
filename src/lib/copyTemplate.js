@@ -26,11 +26,14 @@ type Args = {
 
 const BASIC = "templates/basic/app";
 const REACT = "templates/react/app";
+const VUE = "templates/vue/app";
 
 const copyTemplate = async (arg: Args, init: boolean = false) => {
   let templateDirectory = BASIC;
   if (arg.type === "react") {
     templateDirectory = REACT;
+  } else if (arg.type === "vue") {
+    templateDirectory = VUE;
   }
   let target: string;
   if (!init) {
