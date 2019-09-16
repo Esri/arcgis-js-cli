@@ -14,21 +14,31 @@
 // @flow
 import copy from "recursive-copy";
 import del from "del";
+import rimraf from "rimraf";
 
 const cleanDirectories = async (
   target: string,
   dest: string,
   tests: string
 ) => {
-  await del(`${target}/tests/unit/widgets/WidgetName.tsx`);
-  await del(`${target}/tests/unit/widgets/WidgetName/**`);
-  await del(`${target}/src/widgets/WidgetName.tsx`);
-  await del(`${target}/src/widgets/WidgetName/**`);
+  // the `del` stopped working to delete directories at some point
+  // use rimraf to delete directories
+  // await del([`${target}/tests/unit/widgets/WidgetName.tsx`]);
+  // await del([`${target}/tests/unit/widgets/WidgetName/**`, `${target}/tests/unit/widgets/WidgetName/`]);
+  // await del([`${target}/src/widgets/WidgetName.tsx`]);
+  // await del([`${target}/src/widgets/WidgetName/**`, `${target}/src/widgets/WidgetName/`]);
 
-  await copy(`${target}/src/`, dest + "/");
-  await copy(`${target}/tests/`, tests + "/");
-
-  return del(`${target}/**`);
+  return new Promise(async resolve => {
+    await del([`${target}/tests/unit/widgets/WidgetName.tsx`]);
+    rimraf(`${target}/tests/unit/widgets/WidgetName/`, async () => {
+      await del([`${target}/src/widgets/WidgetName.tsx`]);
+      rimraf(`${target}/src/widgets/WidgetName/`, async () => {
+        await copy(`${target}/src/`, dest + "/");
+        await copy(`${target}/tests/`, tests + "/");
+        rimraf(`${target}/**`, resolve);
+      });
+    });
+  });
 };
 
 export default cleanDirectories;
