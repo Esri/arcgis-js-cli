@@ -28,6 +28,22 @@ const BASIC = "templates/basic/app";
 const REACT = "templates/react/app";
 const VUE = "templates/vue/app";
 
+const gitignore = `node_modules/*
+.vscode/*
+build/*
+dist/*
+html-report/*
+~tmp/*
+.baseDir*
+.tsdrc
+.tscache
+npm-debug.log
+yarn.lock
+package-lock.json
+coverage-final.*
+*.env
+`;
+
 const copyTemplate = async (arg: Args, init: boolean = false) => {
   let templateDirectory = BASIC;
   if (arg.type === "react") {
@@ -48,10 +64,11 @@ const copyTemplate = async (arg: Args, init: boolean = false) => {
   try {
     const rootDir = await pkgDir(__dirname);
     await fse.copy(`${rootDir}/${templateDirectory}`, `${target}`);
-    await fse.copy(
-      `${rootDir}/${templateDirectory}/.gitignore`,
-      `${target}/.gitignore`
-    );
+    await fse.writeFile(`${target}/.gitignore`, gitignore);
+    // await fse.copy(
+    //   `${rootDir}/${templateDirectory}/.gitignore`,
+    //   `${target}/.gitignore`
+    // );
   } catch (error) {
     console.info(error.message);
   }
