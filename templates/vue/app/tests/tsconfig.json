@@ -1,0 +1,11 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+      "baseUrl": "..",
+      "types": [ "arcgis-js-api", "intern", "sinon" ]
+  },
+  "include": [
+    "../typings/*.d.ts",
+      "./**/*.ts"
+  ]
+}

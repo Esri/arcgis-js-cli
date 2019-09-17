@@ -19,8 +19,6 @@ const depsInstall = async (target: any) => {
   console.info(chalk.green.bold("Initializing git repository"));
   try {
     await installer(target, "git", ["init"]);
-    await installer(target, "git", ["add", "."]);
-    await installer(target, "git", ["commit", "-m", "'first commit'"]);
   } catch (error) {
     console.info(chalk.red.bold("git unavailable"));
   }
