@@ -14,7 +14,7 @@
     "@babel/plugin-transform-modules-amd": "~7.5.0",
     "@babel/preset-env": "~7.4.1",
     "@babel/preset-typescript": "~7.3.3",
-    "@types/arcgis-js-api": "~4.13.0",
+    "@types/arcgis-js-api": "~4.14.0",
     "@types/sinon": "~7.0.11",
     "@typescript-eslint/eslint-plugin": "~2.0.0",
     "@typescript-eslint/parser": "~2.0.0",
@@ -68,7 +68,7 @@
     "test": "webpack --config=webpack.tests.config.js --mode=development && intern"
   },
   "dependencies": {
-    "@arcgis/webpack-plugin": "~4.13.0",
+    "@arcgis/webpack-plugin": "~4.14.0",
     "regenerator-runtime": "~0.13.3",
     "vue": "~2.6",
     "vue-router": "~3.1.3"
