@@ -1,0 +1,17 @@
+
+node_modules/*
+.vscode/*
+build/*
+dist/*
+output/*
+html-report/*
+~tmp/*
+.baseDir*
+.tsdrc
+.tscache
+npm-debug.log
+yarn.lock
+package-lock.json
+coverage-final.*
+*.env
+coverage/*

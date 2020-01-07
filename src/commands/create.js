@@ -23,7 +23,8 @@ import fetchRepos from "../lib/fetchRepos";
 type CreatArgs = {
   name: string,
   dest?: string,
-  type: string
+  type: string,
+  cdn: boolean
 };
 
 const create = {
@@ -41,20 +42,36 @@ const create = {
     type: {
       alias: "t",
       describe: "A project template",
-      choices: ["jsapi", "react", "vue"],
+      choices: ["jsapi", "react", "vue", "calcite"],
       demandOption: false,
       default: "jsapi"
     },
     cdn: {
       describe:
         "Project template using JSAPI CDN (only valid with default or calcite)",
-      default: false
+      default: false,
+      type: "boolean"
     }
   },
 
   async handler(argv: CreatArgs) {
     console.info(chalk.underline(`Creating ArcGIS project: ${argv.name}\n`));
-    if (argv.type === "jsapi" || argv.type === "react" || argv.type === "vue") {
+    if (argv.cdn && (argv.type === "react" || argv.type === "vue")) {
+      console.info(
+        chalk.underline(
+          `NOTE: cdn option only applies for type 'jsapi' and 'calcite'\n`
+        )
+      );
+    } else {
+      console.info(chalk.underline(`Use CDN: ${String(argv.cdn)}\n`));
+    }
+
+    if (
+      argv.type === "jsapi" ||
+      argv.type === "react" ||
+      argv.type === "vue" ||
+      argv.type === "calcite"
+    ) {
       return await createApp({ argv });
     } else {
       console.info(chalk.red(`Unknown app template "${argv.type}.\n`));

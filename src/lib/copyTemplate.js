@@ -21,19 +21,23 @@ import pkgDir from "pkg-dir";
 type Args = {
   name: string,
   dest?: string,
-  type?: string
+  type?: string,
+  cdn: boolean
 };
 
 const BASIC = "templates/basic/app";
+const BASIC_CDN = "templates/basic-cdn/app";
 const CALCITE = "templates/calcite/app";
+const CALCITE_CDN = "templates/calcite-cdn/app";
 const REACT = "templates/react/app";
 const VUE = "templates/vue/app";
 
-const gitignore = `node_modules/*
+const gitignore = `
 node_modules/*
 .vscode/*
 build/*
 dist/*
+output/*
 html-report/*
 ~tmp/*
 .baseDir*
@@ -44,17 +48,23 @@ yarn.lock
 package-lock.json
 coverage-final.*
 *.env
-coverage/
+coverage/*
 `;
 
 const copyTemplate = async (arg: Args, init: boolean = false) => {
   let templateDirectory = BASIC;
+  if (arg.cdn) {
+    templateDirectory = BASIC_CDN;
+  }
   if (arg.type === "react") {
     templateDirectory = REACT;
   } else if (arg.type === "vue") {
     templateDirectory = VUE;
   } else if (arg.type === "calcite") {
     templateDirectory = CALCITE;
+    if (arg.cdn) {
+      templateDirectory = CALCITE_CDN;
+    }
   }
 
   let target: string;
@@ -71,6 +81,7 @@ const copyTemplate = async (arg: Args, init: boolean = false) => {
     const rootDir = await pkgDir(__dirname);
     await fse.copy(`${rootDir}/${templateDirectory}`, `${target}`);
     await fse.writeFile(`${target}/.gitignore`, gitignore);
+    // DOES NOT WORK WITH `npm install`
     // await fse.copy(
     //   `${rootDir}/${templateDirectory}/.gitignore`,
     //   `${target}/.gitignore`

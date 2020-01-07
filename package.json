@@ -40,7 +40,10 @@
     ]
   },
   "jest": {
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "testPathIgnorePatterns" : [
+      "templates/" 
+    ]
   },
   "author": "Rene Rubalcava <rrubalcava@esri.com>",
   "license": "Apache-2.0",
