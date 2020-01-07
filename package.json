@@ -41,8 +41,8 @@
   },
   "jest": {
     "testEnvironment": "node",
-    "testPathIgnorePatterns" : [
-      "templates/" 
+    "testPathIgnorePatterns": [
+      "templates/"
     ]
   },
   "author": "Rene Rubalcava <rrubalcava@esri.com>",

@@ -57,6 +57,11 @@ arcgis create jsapi-react-app -t react
 arcgis create jsapi-vue-app -t vue
 ```
 
+> calcite-app-components template application using CDN
+```sh
+arcgis create jsapi-calcite-app -t calcite --cdn
+```
+
 ## Features
 
 
@@ -70,8 +75,9 @@ Create a new application.
 Options:
   --version   Show version number                                      [boolean]
   --name, -n  directory and package name for the new app
-  --dest      Directory to create the application in           [default: <name>]
-  --type, -t  A project template           [choices: "jsapi". "react", "vue"] [default: "jsapi"]
+  --dest      Directory to create the application in                                     [default: <name>]
+  --type, -t  A project template           [choices: "jsapi". "react", "vue", "calcite"] [default: "jsapi"]
+  --cdn       Project template using JSAPI CDN (only valid with default or calcite)      [default: false]
   -h, --help  Show help                                                [boolean]
 
 ```
@@ -85,7 +91,8 @@ Initialize a new application in current directory
 
 Options:
   --version   Show version number                                      [boolean]
-  --type, -t  A project template           [choices: "jsapi", "react"] [default: "jsapi"]
+  --type, -t  A project template           [choices: "jsapi". "react", "vue", "calcite"] [default: "jsapi"]
+  --cdn       Project template using JSAPI CDN (only valid with default or calcite)      [default: false]
   -h, --help  Show help                                                [boolean]
 ```
 
@@ -103,33 +110,6 @@ Options:
   -h, --help  Show help                                                [boolean]
 ```
 
-## Template Application
-
-The template application is written in TypeScript and utilizes the [`@arcgis/webpack-plugin`](https://github.com/Esri/arcgis-webpack-plugin).
-
-You can develop, test, and build the application using various commands.
-
-Run the application in development mode with a local development server.
-```sh
-npm start
-```
-
-Run the unit tests for the application
-```sh
-npm test
-```
-
-Build the application for deployment.
-```sh
-npm run build
-```
-
-Run a production build of the application, but serve it up locally to see how the built app will behave.
-```sh
-npm run serve
-```
-
-Use `npm run serve` to full test that Service Workers are working correctly with `webpack-dev-server` self signed certificates. Refer to [this article](https://deanhume.com/testing-service-workers-locally-with-self-signed-certificates/) on how to run Chrome with proper flags enabled for development purposes.
 
 ## Issues
 Find a bug or want to request a new feature enhancement?  Let us know by submitting an issue.
