@@ -54,5 +54,6 @@ $include_TimePicker: false !default;
 $include_TimeSlider: false !default;
 $include_Zoom: true !default;
 
+@import "~@esri/calcite-app-components/dist/calcite-app/calcite-app.css";
 @import "~arcgis-js-api/themes/light/main.scss";
 @import "index";

@@ -44,6 +44,11 @@ const create = {
       choices: ["jsapi", "react", "vue"],
       demandOption: false,
       default: "jsapi"
+    },
+    cdn: {
+      describe:
+        "Project template using JSAPI CDN (only valid with default or calcite)",
+      default: false
     }
   },
 

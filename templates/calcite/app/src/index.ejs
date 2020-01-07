@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <% if (htmlWebpackPlugin.options.mode === 'production') { %>
+  <script>
+    // Check that service workers are registered
+    if ('serviceWorker' in navigator) {
+      // Use the window load event to keep the page load performant
+      window.addEventListener("load", function() {
+        navigator.serviceWorker.register("./service-worker.js")
+          .catch(function() {
+            console.log("Service Worker not loaded");
+          });
+      });
+    }
+  </script>
+  <% } %>
+</head>
+<body>
+  <noscript> JavaScript is required in order to use this app </noscript>
+  <div class="app-container">
+    <calcite-shell>
+      
+        <calcite-shell-panel id="widget-panel" slot="primary-panel" layout="leading">
+            <calcite-action-bar slot="action-bar">
+              <calcite-action-group>
+                <calcite-action text="Legend">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="100%" height="100%">
+                      <path d="M4 5.5A1.5 1.5 0 1 1 2.5 4 1.502 1.502 0 0 1 4 5.5zM15 2V1H6v1zm0 4V5H6v1zm0 4V9H6v1zm0 4v-1H6v1zM1 3h3V0H1zm0 8h3V8H1zm2.822 4a.246.246 0 0 0 .216-.364l-1.392-2.55a.177.177 0 0 0-.312.002l-1.376 2.55a.246.246 0 0 0 .217.362z"/>
+                    </svg>
+                </calcite-action>
+                <calcite-action text="Layers">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="100%" height="100%">
+                    <path
+                      d="M15.71 11.487l-7.4 4.441a.738.738 0 0 1-.635 0L.27 11.487a.272.272 0 0 1 0-.508l.913-.547 6.49 3.895a.738.738 0 0 0 .635 0l6.49-3.895.912.547a.271.271 0 0 1 0 .508zm0-3.74L14.8 7.2l-6.49 3.894a.738.738 0 0 1-.635 0L1.184 7.2l-.913.547a.272.272 0 0 0 0 .507l7.403 4.442a.738.738 0 0 0 .635 0l7.402-4.442a.271.271 0 0 0 0-.507zM.272 5.022l7.403 4.441a.738.738 0 0 0 .635 0l7.402-4.441a.271.271 0 0 0 0-.508L8.309.073a.738.738 0 0 0-.635 0L.27 4.514a.272.272 0 0 0 0 .508z"
+                    />
+                  </svg>
+                </calcite-action>
+              </calcite-action-group>
+            </calcite-action-bar>
+            <!-- Widget Container -->
+            <div>
+                <calcite-block open>
+                    <calcite-block-content>
+                        <div id="widget-legend"></div>
+                        <div id="widget-layerlist" class="hidden"></div>
+                    </calcite-block-content>
+                </calcite-block>
+            </div>
+
+          </calcite-shell-panel>
+
+      <div slot="shell-header">
+        <header class="header">
+          <h2 class="heading">ArcGIS Template Application</h2>
+        </header>
+      </div>
+      <div id="viewDiv"></div>
+      <footer slot="shell-footer">
+        <a href="https://developers.arcgis.com/javascript/" target="_blank">ArcGIS API for JavaScript</a>
+      </footer>
+    </calcite-shell>
+  </div>
+</body>
+</html>
+

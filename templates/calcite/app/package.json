@@ -60,9 +60,10 @@
     ]
   },
   "dependencies": {
-    "@arcgis/webpack-plugin": "~4.14.0"
+    "@arcgis/webpack-plugin": "~4.14.0",
+    "@esri/calcite-app-components": "^4.10.0"
   },
   "arcgis": {
-    "type": "jsapi"
+    "type": "calcite"
   }
 }

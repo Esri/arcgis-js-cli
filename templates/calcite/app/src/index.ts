@@ -7,6 +7,9 @@ import MapView from 'esri/views/MapView';
 // widget utils
 import { initWidgets } from './widgets';
 
+// interactions
+import { interactions } from './interactions';
+
 /**
  * Initialize application
  */
@@ -19,4 +22,4 @@ featureLayer.when(() => {
   view.goTo(featureLayer.fullExtent);
 });
 
-view.when(initWidgets);
+view.when(initWidgets).then(interactions);

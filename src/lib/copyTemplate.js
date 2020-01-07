@@ -25,10 +25,12 @@ type Args = {
 };
 
 const BASIC = "templates/basic/app";
+const CALCITE = "templates/calcite/app";
 const REACT = "templates/react/app";
 const VUE = "templates/vue/app";
 
 const gitignore = `node_modules/*
+node_modules/*
 .vscode/*
 build/*
 dist/*
@@ -42,6 +44,7 @@ yarn.lock
 package-lock.json
 coverage-final.*
 *.env
+coverage/
 `;
 
 const copyTemplate = async (arg: Args, init: boolean = false) => {
@@ -50,7 +53,10 @@ const copyTemplate = async (arg: Args, init: boolean = false) => {
     templateDirectory = REACT;
   } else if (arg.type === "vue") {
     templateDirectory = VUE;
+  } else if (arg.type === "calcite") {
+    templateDirectory = CALCITE;
   }
+
   let target: string;
   if (!init) {
     target = path.resolve(process.cwd(), arg.dest || arg.name);
