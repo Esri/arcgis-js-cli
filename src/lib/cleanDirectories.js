@@ -19,26 +19,27 @@ import rimraf from "rimraf";
 const cleanDirectories = async (
   target: string,
   dest: string,
-  tests: string
+  tests: string,
+  type: string
 ) => {
-  // the `del` stopped working to delete directories at some point
-  // use rimraf to delete directories
-  // await del([`${target}/tests/unit/widgets/WidgetName.tsx`]);
-  // await del([`${target}/tests/unit/widgets/WidgetName/**`, `${target}/tests/unit/widgets/WidgetName/`]);
-  // await del([`${target}/src/widgets/WidgetName.tsx`]);
-  // await del([`${target}/src/widgets/WidgetName/**`, `${target}/src/widgets/WidgetName/`]);
-
-  return new Promise(async resolve => {
-    await del([`${target}/tests/unit/widgets/WidgetName.tsx`]);
-    rimraf(`${target}/tests/unit/widgets/WidgetName/`, async () => {
-      await del([`${target}/src/widgets/WidgetName.tsx`]);
-      rimraf(`${target}/src/widgets/WidgetName/`, async () => {
-        await copy(`${target}/src/`, dest + "/");
-        await copy(`${target}/tests/`, tests + "/");
-        rimraf(`${target}/**`, resolve);
+  if (type === "jsapi") {
+    return new Promise(async resolve => {
+      await del([`${target}/tests/unit/widgets/WidgetName.tsx`]);
+      rimraf(`${target}/tests/unit/widgets/WidgetName/`, async () => {
+        await del([`${target}/src/widgets/WidgetName.tsx`]);
+        rimraf(`${target}/src/widgets/WidgetName/`, async () => {
+          await copy(`${target}/src/`, dest + "/");
+          await copy(`${target}/tests/`, tests + "/");
+          rimraf(`${target}/**`, resolve);
+        });
       });
     });
-  });
+  } else {
+    return new Promise(async resolve => {
+      await copy(`${target}/client/`, dest + "/");
+      rimraf(`${target}/**`, resolve);
+    });
+  }
 };
 
 export default cleanDirectories;

@@ -72,7 +72,7 @@ test("Widget command only works with `jsapi` apps", async () => {
     expect(result).not.toBeDefined();
   } catch (error) {
     expect(error.message).toEqual(
-      "The `widget` command can only be used in a `jsapi` type app scaffolded with 'arcgis-js-cli'"
+      "The `widget` command can only be used in a `jsapi` type app scaffolded with 'arcgis-js-cli' or `exb` widgets"
     );
   }
 });
