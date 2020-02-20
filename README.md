@@ -106,10 +106,25 @@ Create a new Widget.
 Options:
   --version   Show version number                                      [boolean]
   --name, -n  Name of new widget
-  --type, -t  A widget template            [choices: "jsapi"] [default: "jsapi"]
+  --type, -t  A widget template            [choices: "jsapi", "exb"] [default: "jsapi"]
   -h, --help  Show help                                                [boolean]
 ```
 
+### Experience Builder Widgets
+
+The CLI can be used to scaffold custom widgets for the [ArcGIS Experience Builder Developer Edition](https://www.esri.com/en-us/arcgis/products/arcgis-experience-builder/overview).
+
+You will want to run the CLI in the extracted root directory of your Experience Builder installation.
+
+```sh
+arcgis widget my-widget -t exb
+```
+
+This will install your widget in the Experience Builder folder structure as follows.
+
+```
+<Experience-Builder-Installation>\client\your-extensions\widgets\MyWidget\
+```
 
 ## Issues
 Find a bug or want to request a new feature enhancement?  Let us know by submitting an issue.
@@ -123,7 +138,7 @@ Anyone and everyone is welcome to [contribute](CONTRIBUTING.md). We do accept pu
 4. Improve documentation
 
 ## Licensing
-Copyright 2018 Esri
+Copyright 2020 Esri
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
