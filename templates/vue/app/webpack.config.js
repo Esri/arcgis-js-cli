@@ -185,6 +185,7 @@ module.exports = function(_, arg) {
         node: {
             process: false,
             global: false,
+            Buffer: false,
             fs: 'empty'
         }
     };

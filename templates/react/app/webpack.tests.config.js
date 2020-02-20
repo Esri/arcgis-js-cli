@@ -98,6 +98,7 @@ module.exports = {
     node: {
         process: false,
         global: false,
+        Buffer: false,
         fs: 'empty',
     },
 };
