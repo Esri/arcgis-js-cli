@@ -91,7 +91,9 @@ module.exports = function(_, arg) {
                             loader: 'sass-loader',
                             options: {
                                 sourceMap: true,
-                                includePaths: [path.resolve('./node_modules')],
+                                sassOptions: {
+                                    includePaths: [path.resolve('./node_modules')],
+                                },
                             },
                         },
                     ],
@@ -189,34 +191,34 @@ module.exports = function(_, arg) {
                         // Match any request ends with .png, .jpg, .jpeg or .svg.
                         urlPattern: /\.(?:png|jpg|jpeg|svg|gif)$/,
                         // Apply a cache-first strategy.
-                        handler: 'cacheFirst',
+                        handler: 'CacheFirst',
                     },
                     {
                         // Match any fonts
                         urlPattern: /\.(?:eot|ttf|jpeg|woff|woff2)$/,
                         // Apply a cache-first strategy.
-                        handler: 'cacheFirst',
+                        handler: 'CacheFirst',
                     },
                     {
                         urlPattern: new RegExp('^https://js.arcgis.com/'),
-                        handler: 'staleWhileRevalidate',
+                        handler: 'StaleWhileRevalidate',
                     },
                     {
                         urlPattern: new RegExp('^https://arcgis.com/sharing/'),
-                        handler: 'staleWhileRevalidate',
+                        handler: 'StaleWhileRevalidate',
                     },
                     {
                         urlPattern: new RegExp('^https://static.arcgis.com/'),
-                        handler: 'staleWhileRevalidate',
+                        handler: 'StaleWhileRevalidate',
                     },
                     // Google Material stuff
                     {
                         urlPattern: new RegExp('^https://fonts.gstatic.com/'),
-                        handler: 'staleWhileRevalidate',
+                        handler: 'StaleWhileRevalidate',
                     },
                     {
                         urlPattern: new RegExp('^https://fonts.googleapis.com/'),
-                        handler: 'staleWhileRevalidate',
+                        handler: 'StaleWhileRevalidate',
                     },
                 ],
             }),

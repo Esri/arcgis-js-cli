@@ -1,4 +1,8 @@
 module.exports = {
+    root: true,
+    env: {
+        node: true
+    },
     parser: '@typescript-eslint/parser', // Specifies the ESLint parser
     extends: [
         'prettier',
@@ -12,7 +16,7 @@ module.exports = {
         ecmaFeatures: {
             jsx: true, // Allows for the parsing of JSX
         },
-        project: './tsconfig.json',
+        // project: './tsconfig.json',
     },
     rules: {
         // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
