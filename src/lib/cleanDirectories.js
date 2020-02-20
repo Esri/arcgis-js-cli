@@ -34,10 +34,15 @@ const cleanDirectories = async (
         });
       });
     });
-  } else {
+  } else if (type === "exb") {
     return new Promise(async resolve => {
-      await copy(`${target}/client/`, dest + "/");
-      rimraf(`${target}/**`, resolve);
+      rimraf(
+        `${target}/client/your-extensions/widgets/WidgetName/`,
+        async () => {
+          await copy(`${target}/client/`, dest + "/");
+          rimraf(`${target}/**`, resolve);
+        }
+      );
     });
   }
 };
