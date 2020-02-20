@@ -36,7 +36,7 @@ export default {
       extract: true
     }),
     copy({
-      targets: [{ src: 'public/**/*', dest: OUTPUT }]
+      targets: [{ src: 'public/*', dest: OUTPUT }]
     }),
     ...SERVER
   ]

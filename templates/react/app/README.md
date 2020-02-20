@@ -11,7 +11,7 @@ Run the application in development mode with a local development server.
 npm start
 ```
 
-Run the unit tests for the application. Unit tests are written with [Intern](https://theintern.io/) and [react-testing-library](https://github.com/kentcdodds/react-testing-library).
+Run the unit tests for the application. Unit tests are written with [Jest](https://jestjs.io/) and [react-testing-library](https://github.com/kentcdodds/react-testing-library).
 ```sh
 npm test
 ```
