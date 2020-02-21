@@ -32,7 +32,7 @@ const widget = {
     type: {
       alias: "t",
       describe: "A widget template",
-      choices: ["jsapi"],
+      choices: ["jsapi", "exb"],
       demandOption: false,
       default: "jsapi"
     }

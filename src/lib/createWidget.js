@@ -25,6 +25,10 @@ import cleanDirectories from "./cleanDirectories";
 import copyUpdateFiles from "./copyUpdateFiles";
 import readDirR from "./readDirR";
 
+// Experience Builder
+const BASIC = "templates/basic/widget";
+const EXB = "templates/exb/widget";
+
 const normalize: string => string = compose(
   replace(/\s/g, ""),
   startCase,
@@ -38,15 +42,18 @@ const createWidget = async ({ argv }: any) => {
     pkg = JSON.parse(
       await fse.readFile(path.resolve(process.cwd(), "package.json"))
     );
-    if (!pkg || (pkg && pkg.arcgis.type !== "jsapi")) {
+    if (
+      !pkg ||
+      (pkg && (pkg.arcgis.type !== "jsapi" || pkg.arcgis.type !== "exb"))
+    ) {
       console.info(
         chalk.red.bold(
-          "The `widget` command can only be used in a `jsapi` type app scaffolded with 'arcgis-js-cli'\n"
+          "The `widget` command can only be used in a `jsapi` type app scaffolded with 'arcgis-js-cli' or `exb` widgets\n"
         )
       );
       return Promise.reject(
         new Error(
-          "The `widget` command can only be used in a `jsapi` type app scaffolded with 'arcgis-js-cli'"
+          "The `widget` command can only be used in a `jsapi` type app scaffolded with 'arcgis-js-cli' or `exb` widgets"
         )
       );
     }
@@ -54,18 +61,23 @@ const createWidget = async ({ argv }: any) => {
     /* let it fail! */
   }
 
+  const directory = argv.type === "exb" ? EXB : BASIC;
+
   const target = path.resolve(process.cwd(), "tmp");
-  const dest = path.resolve(process.cwd(), "src");
+  const dest = path.resolve(
+    process.cwd(),
+    argv.type === "exb" ? "client" : "src"
+  );
   const tests = path.resolve(process.cwd(), "tests");
   const name = normalize(argv.name);
 
   try {
     const rootDir = await pkgDir(__dirname);
-    await fse.copy(`${rootDir}/templates/basic/widget`, target, {
+    await fse.copy(`${rootDir}/${directory}`, target, {
       filter: (s, d) => !s.includes("DS_Store")
     });
     await copyUpdateFiles(readDirR(target), name);
-    await cleanDirectories(target, dest, tests);
+    await cleanDirectories(target, dest, tests, argv.type);
   } catch (error) {
     console.info(chalk.red.bold(`Widget creation failed: ${error.message}\n`));
     return Promise.reject(

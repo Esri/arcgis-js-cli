@@ -1,0 +1,16 @@
+{
+  "name": "<%name%>",
+  "type": "widget",
+  "version": "1.0.0",
+  "exbVersion": "1.0.0-beta.2",
+  "author": "",
+  "description": "This is a barebones, simple widget.",
+  "copyright": "",
+  "license": "http://www.apache.org/licenses/LICENSE-2.0",
+  "properties": {},
+  "supportedLocales": ["en"],
+  "defaultSize": {
+    "width": 800,
+    "height": 500
+  }
+}
