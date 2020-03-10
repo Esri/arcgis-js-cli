@@ -19,7 +19,6 @@ import fsp from "fs.promised";
 import fs from "fs";
 import commandExists from "command-exists";
 
-import download from "./downloadAsync";
 import copyTemplate from "./copyTemplate";
 import depsInstall from "./depsInstall";
 

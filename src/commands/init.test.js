@@ -15,7 +15,6 @@
 /* global expect, test, jest */
 import init from "../commands/init";
 
-jest.mock("../lib/downloadAsync");
 jest.mock("../lib/installer");
 jest.mock("path");
 jest.mock("fs.promised");

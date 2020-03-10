@@ -15,7 +15,6 @@
 
 import create from "../commands/create";
 
-jest.mock("../lib/downloadAsync");
 jest.mock("../lib/installer");
 jest.mock("path");
 jest.mock("fs.promised");

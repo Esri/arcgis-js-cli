@@ -18,14 +18,17 @@ import fsp from "fs.promised";
 import fs from "fs";
 import installer from "./installer";
 
-jest.mock("./downloadAsync");
 jest.mock("./installer");
 jest.mock("path");
 jest.mock("ora");
 jest.mock("fs.promised");
 
 afterEach(() => {
-  fs.rmdir("~redcup", () => {}, () => {});
+  fs.rmdir(
+    "~redcup",
+    () => {},
+    () => {}
+  );
   fsp.__RETURN = null;
 });
 
