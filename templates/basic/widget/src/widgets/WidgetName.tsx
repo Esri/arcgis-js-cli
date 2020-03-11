@@ -1,36 +1,31 @@
 import esri = __esri;
 
-import {
-  aliasOf,
-  declared,
-  property,
-  subclass
-} from "esri/core/accessorSupport/decorators";
+import { aliasOf, declared, property, subclass } from 'esri/core/accessorSupport/decorators';
 
-import { renderable, tsx } from "esri/widgets/support/widget";
+import { renderable, tsx } from 'esri/widgets/support/widget';
 
-import Widget from "esri/widgets/Widget";
+import Widget from 'esri/widgets/Widget';
 
-import <%name%>ViewModel from "./<%name%>/<%name%>ViewModel";
+import <%name%>ViewModel from './<%name%>/<%name%>ViewModel';
 
-export interface <%name>Properties extends esri.WidgetProperties {
+export interface <%name%>Properties extends esri.WidgetProperties {
   name?: string;
   view?: esri.MapView | esri.SceneView;
 }
 
 const CSS = {
-  base: "esri-widget <%name-lower%>-base"
+  base: 'esri-widget <%name-lower%>-base'
 };
 
-@subclass("app.widgets.<%name%>")
+@subclass('app.widgets.<%name%>')
 export default class <%name%> extends declared(Widget) {
 
-  @aliasOf("viewModel.view")
+  @aliasOf('viewModel.view')
   view: esri.MapView | esri.SceneView;
 
-  @aliasOf("viewModel.name")
+  @aliasOf('viewModel.name')
   @renderable()
-  name = "";
+  name = '';
 
   @property({
     type: <%name%>ViewModel
@@ -38,16 +33,14 @@ export default class <%name%> extends declared(Widget) {
   @renderable()
   viewModel: <%name%>ViewModel = new <%name%>ViewModel();
 
-  constructor(properties?: <%name>Properties) {
-    super();
+  constructor(properties?: <%name%>Properties) {
+    super(properties);
   }
 
   render() {
     return (
       <div class={CSS.base}>
-        <p>
-          Welcome {this.name}!
-        </p>
+        <p>Welcome {this.name}!</p>
       </div>
     );
   }

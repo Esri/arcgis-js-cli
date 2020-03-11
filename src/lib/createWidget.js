@@ -44,7 +44,7 @@ const createWidget = async ({ argv }: any) => {
     );
     if (
       !pkg ||
-      (pkg && (pkg.arcgis.type !== "jsapi" || pkg.arcgis.type !== "exb"))
+      (pkg && pkg.arcgis.type !== "jsapi" && pkg.arcgis.type !== "exb")
     ) {
       console.info(
         chalk.red.bold(
