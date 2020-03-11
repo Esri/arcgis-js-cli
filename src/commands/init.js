@@ -15,19 +15,18 @@
 import { blue, cyan } from "chalk";
 import ora from "ora";
 import inquirer from "inquirer";
+import chalk from "chalk";
 import { compose, last, prop, split } from "ramda";
 
 import createApp from "../lib/createApp";
 import fetchRepos from "../lib/fetchRepos";
 
-const currentDirectory: string => any | string = compose(
-  last,
-  split("/")
-);
+const currentDirectory: string => any | string = compose(last, split("/"));
 
 type InitArgs = {
   type: string,
-  name: string
+  name: string,
+  cdn: boolean
 };
 
 const init = {
@@ -37,22 +36,45 @@ const init = {
     type: {
       alias: "t",
       describe: "A project template",
-      choices: ["jsapi", "react"],
+      choices: ["jsapi", "react", "vue", "calcite"],
       demandOption: false,
       default: "jsapi"
+    },
+    cdn: {
+      describe:
+        "Project template using JSAPI CDN (only valid with default or calcite)",
+      default: false,
+      type: "boolean"
     }
   },
 
   async handler(argv: InitArgs) {
-    let template = "";
     argv.name = currentDirectory(process.cwd());
-    const spinner = ora({
-      text: `Creating ArcGIS project - ${argv.name}`,
-      color: "green",
-      spinner: "earth"
-    }).start();
 
-    await createApp({ argv, template, spinner, init: true });
+    console.info(
+      chalk.underline(`Initializing ArcGIS project: ${argv.name}\n`)
+    );
+    if (argv.cdn && (argv.type === "react" || argv.type === "vue")) {
+      console.info(
+        chalk.underline(
+          `NOTE: cdn option only applies for type 'jsapi' and 'calcite'\n`
+        )
+      );
+    } else {
+      console.info(chalk.underline(`Use CDN: ${String(argv.cdn)}\n`));
+    }
+
+    if (
+      argv.type === "jsapi" ||
+      argv.type === "react" ||
+      argv.type === "vue" ||
+      argv.type === "calcite"
+    ) {
+      return await createApp({ argv, init: true });
+    } else {
+      console.info(chalk.red(`Unknown app template "${argv.type}.\n`));
+      return Promise.reject(new Error(`Unknown app template "${argv.type}.`));
+    }
   }
 };
 
