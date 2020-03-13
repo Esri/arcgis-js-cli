@@ -72,8 +72,8 @@ const init = {
     ) {
       return await createApp({ argv, init: true });
     } else {
-      console.info(chalk.red(`Unknown app template "${argv.type}.\n`));
-      return Promise.reject(new Error(`Unknown app template "${argv.type}.`));
+      console.info(chalk.red(`Unknown app template "${argv.type}".\n`));
+      return Promise.reject(new Error(`Unknown app template "${argv.type}".`));
     }
   }
 };

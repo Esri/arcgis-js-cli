@@ -42,7 +42,7 @@
   "jest": {
     "testEnvironment": "node",
     "testPathIgnorePatterns": [
-      "templates/"
+      "<rootDir>/templates/"
     ]
   },
   "author": "Rene Rubalcava <rrubalcava@esri.com>",

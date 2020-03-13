@@ -35,19 +35,7 @@ test("Init handler succeeds for default app", async () => {
     let result = await init.handler(argv);
     expect(result).not.toBeDefined();
   } catch (error) {
-    expect(error.message).toEqual(1);
-  }
-});
-
-test("Init handler succeeds for template", async () => {
-  const argv = {
-    type: "template"
-  };
-  try {
-    let result = await init.handler(argv);
-    expect(result).not.toBeDefined();
-  } catch (error) {
-    expect(error.message).toEqual(1);
+    expect(error.message).toEqual(0);
   }
 });
 
@@ -59,6 +47,6 @@ test("Init handler fails for unknown template", async () => {
     let result = await init.handler(argv);
     expect(result).not.toBeDefined();
   } catch (error) {
-    expect(error.message).toEqual(`Unknown app template "${argv.type}.`);
+    expect(error.message).toEqual(`Unknown app template "${argv.type}".`);
   }
 });
