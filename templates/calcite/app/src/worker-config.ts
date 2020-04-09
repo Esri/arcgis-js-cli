@@ -6,7 +6,7 @@ applyPolyfills().then(() => {
   defineCustomElements(window);
 });
 
-const DEFAULT_WORKER_URL = 'https://js.arcgis.com/4.14/';
+const DEFAULT_WORKER_URL = 'https://js.arcgis.com/4.15/';
 const DEFAULT_LOADER_URL = `${DEFAULT_WORKER_URL}dojo/dojo-lite.js`;
 
 (esriConfig.workers as any).loaderUrl = DEFAULT_LOADER_URL;
