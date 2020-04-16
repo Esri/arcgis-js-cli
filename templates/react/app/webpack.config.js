@@ -23,11 +23,6 @@ module.exports = function(_, arg) {
         },
         optimization: {
             minimizer: [
-                new TerserPlugin({
-                    cache: true,
-                    parallel: true,
-                    sourceMap: false,
-                }),
                 new OptimizeCSSAssetsPlugin({
                     cssProcessorOptions: {
                         discardComments: {
@@ -174,10 +169,17 @@ module.exports = function(_, arg) {
     };
 
     if (arg.mode === 'development') {
-        config.devtool = 'source-map';
+        config.devtool = 'eval-source-map';
     }
 
     if (arg.mode === 'production') {
+        config.optimization.minimizer.push(
+            new TerserPlugin({
+                cache: true,
+                parallel: true,
+                sourceMap: false,
+            }),
+        );
         config.plugins.push(
             new WorkboxPlugin.GenerateSW({
                 clientsClaim: true,
