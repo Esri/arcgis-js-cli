@@ -186,6 +186,7 @@ module.exports = function(_, arg) {
             process: false,
             global: false,
             Buffer: false,
+            setImmediate: false,
             fs: 'empty'
         }
     };
