@@ -74,7 +74,8 @@ module.exports = function(_, arg) {
                     loader: 'url-loader',
                     options: {
                         // Inline files smaller than 10 kB (10240 bytes)
-                        limit: 10 * 1024
+                        limit: 10 * 1024,
+                        esModule: false
                     }
                 },
                 {
@@ -83,7 +84,8 @@ module.exports = function(_, arg) {
                         {
                             loader: 'file-loader',
                             options: {
-                                name: 'build/[name].[ext]'
+                                name: 'build/[name].[ext]',
+                                esModule: false
                             }
                         }
                     ]
