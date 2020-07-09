@@ -1,6 +1,6 @@
 {
   "name": "@arcgis/cli",
-  "version": "4.15.1",
+  "version": "4.16.0",
   "description": "",
   "main": "dist/index.js",
   "bin": {
