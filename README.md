@@ -62,6 +62,13 @@ arcgis create jsapi-vue-app -t vue
 arcgis create jsapi-calcite-app -t calcite --cdn
 ```
 
+## Sample Apps
+
+* [ArcGIS Basic App](https://jsapi-basic-416.surge.sh/)
+* [ArcGIS React App](https://jsapi-react-416.surge.sh/)
+* [ArcGIS Vue App](https://jsapi-vue-416.surge.sh/)
+
+
 ## Features
 
 
