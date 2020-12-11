@@ -1,1 +1,0 @@
-import{I as e}from"./Utils-b46864a6.js";import{b as r,g as s}from"./WGLContainer-720c8185.js";class a extends r{prepareRenderPasses(r){const a=r.registerRenderPass({name:"bitmap",brushes:[s.bitmap],target:()=>this.children,drawPhase:e.MAP});return[...super.prepareRenderPasses(r),a]}}export{a as t};
