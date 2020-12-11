@@ -11,7 +11,6 @@
   limitations under the License.
 */
 
-// @flow
 import chalk from 'chalk';
 
 import createWidget from '../lib/createWidget';

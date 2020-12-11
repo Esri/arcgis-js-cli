@@ -11,11 +11,9 @@
   limitations under the License.
 */
 
-/* eslint spaced-comment:0 */
-/* global expect, test, jest, afterEach */
 import widget from './widget';
-import fs from 'fs';
 import fse from 'fs-extra';
+
 jest.mock('ora');
 jest.mock('path');
 jest.mock('fs');

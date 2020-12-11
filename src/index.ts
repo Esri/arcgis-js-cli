@@ -19,7 +19,6 @@ import create from './commands/create';
 import init from './commands/init';
 import widget from './commands/widget';
 
-/* eslint no-unused-expressions: 0 */
 yargs
 	.scriptName('arcgis')
 	.command(create as any)

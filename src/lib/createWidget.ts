@@ -11,7 +11,6 @@
   limitations under the License.
 */
 
-// @flow
 import path from 'path';
 import fs from 'fs';
 import fse from 'fs-extra';

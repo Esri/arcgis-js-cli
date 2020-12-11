@@ -11,8 +11,6 @@
   limitations under the License.
 */
 
-/* eslint spaced-comment:0 */
-/* global expect, test, jest */
 import init from './init';
 
 jest.mock('../lib/installer');

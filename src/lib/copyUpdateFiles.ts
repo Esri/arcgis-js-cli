@@ -11,7 +11,6 @@
   limitations under the License.
 */
 
-// @flow
 import fse from 'fs-extra';
 import chalk from 'chalk';
 import { compose, map, replace, toLower } from 'ramda';
