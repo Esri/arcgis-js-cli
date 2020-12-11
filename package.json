@@ -1,10 +1,10 @@
 {
   "name": "@arcgis/cli",
-  "version": "4.16.0",
-  "description": "",
+  "version": "4.18.0",
+  "description": "CLI to scaffold ArcGIS API for JavaScript applications",
   "main": "dist/index.js",
   "bin": {
-    "arcgis": "./dist/index.js"
+    "arcgis": "dist/index.js"
   },
   "repository": {
     "type": "git",
@@ -19,10 +19,10 @@
     "prepare": "npm run -s build",
     "clean": "rimraf dist",
     "test": "npm run clean && jest --coverage",
-    "build": "npm run clean && npm run flow && babel src -d dist -D --ignore '*.test.js,**/__mocks__/'",
+    "build": "npm run clean && npm run tsc && babel src -d dist -D --ignore '*.test.ts,**/__mocks__/'",
     "dev": "npm run clean && npm run build && jest --watch",
-    "flow": "flow",
-    "pretty": "prettier 'src/**/*.js' --write"
+    "tsc": "tsc",
+    "pretty": "prettier 'src/**/*.ts' --write"
   },
   "files": [
     "dist",
@@ -34,7 +34,7 @@
     }
   },
   "lint-staged": {
-    "src/**/*.js": [
+    "src/**/*.ts": [
       "prettier --write"
     ]
   },
@@ -47,47 +47,71 @@
   "author": "Rene Rubalcava <rrubalcava@esri.com>",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.8.7",
-    "@babel/preset-env": "^7.8.7",
-    "@babel/preset-flow": "^7.8.3",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^6.8.0",
-    "eslint-config-standard": "^14.1.0",
-    "eslint-plugin-flowtype": "^4.6.0",
-    "eslint-plugin-import": "^2.20.1",
-    "eslint-plugin-node": "^11.0.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1",
-    "flow-bin": "^0.120.1",
-    "husky": "^4.2.3",
-    "jest-cli": "^25.1.0",
-    "lint-staged": "^10.0.8",
-    "prettier": "^1.19.1",
-    "prettier-eslint": "^9.0.1"
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.10",
+    "@babel/preset-typescript": "^7.12.7",
+    "@types/jest": "^26.0.19",
+    "@typescript-eslint/parser": "^4.9.1",
+    "eslint-config-prettier": "^7.0.0",
+    "eslint-plugin-prettier": "^3.2.0",
+    "husky": "^4.3.5",
+    "jest": "^26.6.3",
+    "lint-staged": "^10.5.3",
+    "prettier": "^2.2.1",
+    "typescript": "^4.1.2"
+  },
+  "babel": {
+    "comments": false,
+    "presets": [
+      "@babel/preset-typescript",
+      "@babel/preset-env",
+      {
+        "loose": true,
+        "targets": {
+          "node": "current"
+        },
+        "exclude": [
+          "transform-regenerator"
+        ]
+      }
+    ]
+  },
+  "eslintConfig": {
+    "env": {
+      "node": true
+    },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaVersion": 2020,
+      "sourceType": "module"
+    },
+    "rules": {
+      "@typescript-eslint/no-empty-function": 0
+    },
+    "extends": [
+      "plugin:@typescript-eslint/recommended",
+      "prettier/@typescript-eslint",
+      "plugin:prettier/recommended"
+    ]
+  },
+  "prettier": {
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "printWidth": 120,
+    "tabWidth": 4,
+    "useTabs": true
   },
   "dependencies": {
-    "chalk": "^3.0.0",
-    "command-exists": "^1.2.8",
-    "cross-spawn-promise": "^0.10.2",
-    "del": "^5.1.0",
-    "fs-extra": "^8.1.0",
-    "fs.promised": "^3.0.0",
-    "inquirer": "^7.1.0",
-    "live-server": "^1.2.1",
+    "chalk": "^2.4.2",
+    "fs-extra": "^9.0.1",
+    "inquirer": "^7.3.3",
     "lodash.camelcase": "^4.3.0",
     "lodash.startcase": "^4.4.0",
-    "mkdirp": "^1.0.3",
-    "ora": "^4.0.3",
-    "pkg-dir": "^4.2.0",
-    "promise-polyfill": "^8.1.3",
-    "promisify-node": "^0.5.0",
-    "prompt": "^1.0.0",
-    "ramda": "^0.27.0",
-    "recursive-copy": "^2.0.10",
-    "request": "^2.88.2",
-    "request-promise-native": "^1.0.8",
+    "ora": "^5.1.0",
+    "ramda": "^0.27.1",
     "rimraf": "^3.0.2",
-    "yargs": "^15.3.0"
+    "yargs": "^15.4.1"
   }
 }

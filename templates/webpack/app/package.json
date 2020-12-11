@@ -1,0 +1,116 @@
+{
+  "name": "jsapi-cli-template-app",
+  "version": "0.0.1",
+  "devDependencies": {
+    "@arcgis/webpack-plugin": "^4.18.0-next.20201029",
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/plugin-transform-async-to-generator": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-typescript": "^7.12.1",
+    "@types/jest": "^26.0.18",
+    "@typescript-eslint/eslint-plugin": "^4.8.1",
+    "@typescript-eslint/parser": "^4.8.1",
+    "babel-loader": "^8.2.1",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^5.0.1",
+    "css-minimizer-webpack-plugin": "^1.1.5",
+    "eslint": "^7.13.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-prettier": "^3.2.0",
+    "html-loader": "^1.3.2",
+    "html-webpack-plugin": "^4.5.0",
+    "husky": "^4.3.0",
+    "jest": "^26.6.3",
+    "lint-staged": "^10.5.1",
+    "mini-css-extract-plugin": "^1.3.1",
+    "prettier": "^2.1.2",
+    "style-loader": "^2.0.0",
+    "terser-webpack-plugin": "^5.0.3",
+    "ts-jest": "^26.4.4",
+    "ts-loader": "^8.0.11",
+    "tslib": "^2.0.3",
+    "typescript": "^4.0.5",
+    "webpack": "^5.5.1",
+    "webpack-cli": "^4.2.0",
+    "webpack-dev-server": "^3.11.0",
+    "workbox-webpack-plugin": "^6.0.2"
+  },
+  "license": "Apache-2.0",
+  "scripts": {
+    "precommit": "lint-staged",
+    "start": "webpack serve --mode development",
+    "build": "webpack --mode production",
+    "prettier": "prettier --write \"src/**/*.ts?(x)\"",
+    "lint": "eslint 'src/**/*.{js,ts,tsx}' --quiet --fix",
+    "test": "jest --coverage"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-typescript"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties"
+    ]
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaVersion": 2020,
+      "sourceType": "module"
+    },
+    "rules": {
+      "@typescript-eslint/no-empty-function": 0,
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          "argsIgnorePattern": "^_|^h"
+        }
+      ]
+    },
+    "extends": [
+      "plugin:@typescript-eslint/recommended",
+      "prettier/@typescript-eslint",
+      "plugin:prettier/recommended"
+    ]
+  },
+  "jest": {
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "testMatch": [
+      "**/__tests__/**/*.+(ts|tsx|js)",
+      "**/?(*.)+(spec|test).+(ts|tsx|js)"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    }
+  },
+  "prettier": {
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "printWidth": 120,
+    "tabWidth": 4,
+    "useTabs": true
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
+  },
+  "dependencies": {
+    "@arcgis/core": "^4.18.0-next.20201117",
+    "@babel/polyfill": "^7.12.1"
+  },
+  "arcgis": {
+    "type": "jsapi"
+  }
+}
