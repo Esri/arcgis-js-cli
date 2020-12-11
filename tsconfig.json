@@ -2,5 +2,8 @@
     "compilerOptions": {
       "noEmit": true,
       "esModuleInterop": true
-    }
+    },
+    "include": [
+      "src"
+    ]
   }

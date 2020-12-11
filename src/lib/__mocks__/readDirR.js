@@ -14,7 +14,7 @@
 /* eslint spaced-comment:0 */
 /* global jest */
 
-let files = ["app/widgets/WidgetName.ts"];
+let files = ['app/widgets/WidgetName.ts'];
 
 const readDirR = jest.fn(() => files);
 

@@ -13,42 +13,42 @@
 
 /* eslint spaced-comment:0 */
 /* global expect, test, jest, afterEach */
-import widget from "./widget";
-import fs from "fs";
-import fse from "fs-extra";
-jest.mock("ora");
-jest.mock("path");
-jest.mock("fs");
-jest.mock("fs-extra");
-jest.mock("child_process");
-jest.mock("fs.promised");
-jest.mock("del");
-jest.mock("recursive-copy");
-jest.mock("../lib/readDirR");
+import widget from './widget';
+import fs from 'fs';
+import fse from 'fs-extra';
+jest.mock('ora');
+jest.mock('path');
+jest.mock('fs');
+jest.mock('fs-extra');
+jest.mock('child_process');
+jest.mock('fs.promised');
+jest.mock('del');
+jest.mock('recursive-copy');
+jest.mock('../lib/readDirR');
 
 afterEach(() => {
-  fse.__RETURN = null;
+	fse.__RETURN = null;
 });
 
-test("Widget command has correct options", () => {
-  const { name, type } = widget.builder;
-  expect(name).toBeDefined();
-  expect(type).toBeDefined();
-  expect(type.default).toEqual("jsapi");
+test('Widget command has correct options', () => {
+	const { name, type } = widget.builder;
+	expect(name).toBeDefined();
+	expect(type).toBeDefined();
+	expect(type.default).toEqual('jsapi');
 });
 
-test("Widget command only works with `jsapi` apps", async () => {
-  fse.__RETURN = `{ "arcgis": { "type": "template" } }`;
-  const argv = {
-    type: "template",
-    name: "mywidget"
-  };
-  try {
-    let result = await widget.handler(argv);
-    expect(result).not.toBeDefined();
-  } catch (error) {
-    expect(error.message).toEqual(
-      "The `widget` command can only be used in a `jsapi` type app scaffolded with 'arcgis-js-cli' or `exb` widgets"
-    );
-  }
+test('Widget command only works with `jsapi` apps', async () => {
+	fse.__RETURN = `{ "arcgis": { "type": "template" } }`;
+	const argv = {
+		type: 'template',
+		name: 'mywidget',
+	};
+	try {
+		const result = await widget.handler(argv);
+		expect(result).not.toBeDefined();
+	} catch (error) {
+		expect(error.message).toEqual(
+			"The `widget` command can only be used in a `jsapi` type app scaffolded with 'arcgis-js-cli' or `exb` widgets",
+		);
+	}
 });

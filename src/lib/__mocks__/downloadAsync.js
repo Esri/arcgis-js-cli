@@ -15,11 +15,9 @@
 /* global jest */
 
 const download = jest.fn(() => {
-  return new Promise((resolve, reject) => {
-    process.nextTick(
-      () => (download.__THROW ? reject(new Error("haha")) : resolve())
-    );
-  });
+	return new Promise((resolve, reject) => {
+		process.nextTick(() => (download.__THROW ? reject(new Error('haha')) : resolve()));
+	});
 });
 
 download.__THROW = false;

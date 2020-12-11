@@ -19,10 +19,10 @@
     "prepare": "npm run -s build",
     "clean": "rimraf dist",
     "test": "npm run clean && jest --coverage",
-    "build": "npm run clean && npm run tsc && babel src -d dist -D --ignore '*.test.ts,**/__mocks__/'",
+    "build": "npm run clean && npm run tsc && babel src --out-dir dist --extensions \".ts\" -D --ignore '*.test.ts,**/__mocks__/'",
     "dev": "npm run clean && npm run build && jest --watch",
     "tsc": "tsc",
-    "pretty": "prettier 'src/**/*.ts' --write"
+    "lint": "eslint 'src/**/*.{js,ts,tsx}' --quiet --fix"
   },
   "files": [
     "dist",
@@ -34,8 +34,8 @@
     }
   },
   "lint-staged": {
-    "src/**/*.ts": [
-      "prettier --write"
+    "*.{ts,tsx}": [
+      "eslint --fix"
     ]
   },
   "jest": {
@@ -52,6 +52,7 @@
     "@babel/preset-env": "^7.12.10",
     "@babel/preset-typescript": "^7.12.7",
     "@types/jest": "^26.0.19",
+    "@typescript-eslint/eslint-plugin": "^4.9.1",
     "@typescript-eslint/parser": "^4.9.1",
     "eslint-config-prettier": "^7.0.0",
     "eslint-plugin-prettier": "^3.2.0",
@@ -65,16 +66,7 @@
     "comments": false,
     "presets": [
       "@babel/preset-typescript",
-      "@babel/preset-env",
-      {
-        "loose": true,
-        "targets": {
-          "node": "current"
-        },
-        "exclude": [
-          "transform-regenerator"
-        ]
-      }
+      "@babel/preset-env"
     ]
   },
   "eslintConfig": {
@@ -105,12 +97,15 @@
   },
   "dependencies": {
     "chalk": "^2.4.2",
+    "cross-spawn-promise": "^0.10.2",
+    "del": "^6.0.0",
     "fs-extra": "^9.0.1",
     "inquirer": "^7.3.3",
     "lodash.camelcase": "^4.3.0",
     "lodash.startcase": "^4.4.0",
     "ora": "^5.1.0",
     "ramda": "^0.27.1",
+    "recursive-copy": "^2.0.11",
     "rimraf": "^3.0.2",
     "yargs": "^15.4.1"
   }

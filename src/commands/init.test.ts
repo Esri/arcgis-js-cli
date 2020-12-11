@@ -13,40 +13,40 @@
 
 /* eslint spaced-comment:0 */
 /* global expect, test, jest */
-import init from "./init";
+import init from './init';
 
-jest.mock("../lib/installer");
-jest.mock("path");
-jest.mock("fs.promised");
-jest.mock("ora");
-jest.mock("inquirer");
+jest.mock('../lib/installer');
+jest.mock('path');
+jest.mock('fs.promised');
+jest.mock('ora');
+jest.mock('inquirer');
 
-test("Init command has correct options", () => {
-  const { type } = init.builder;
-  expect(type).toBeDefined();
-  expect(type.default).toEqual("jsapi");
+test('Init command has correct options', () => {
+	const { type } = init.builder;
+	expect(type).toBeDefined();
+	expect(type.default).toEqual('jsapi');
 });
 
-test("Init handler succeeds for default app", async () => {
-  const argv: any = {
-    type: "jsapi"
-  };
-  try {
-    let result = await init.handler(argv);
-    expect(result).not.toBeDefined();
-  } catch (error) {
-    expect(error.message).toEqual(0);
-  }
+test('Init handler succeeds for default app', async () => {
+	const argv: any = {
+		type: 'jsapi',
+	};
+	try {
+		const result = await init.handler(argv);
+		expect(result).not.toBeDefined();
+	} catch (error) {
+		expect(error.message).toEqual(0);
+	}
 });
 
-test("Init handler fails for unknown template", async () => {
-  const argv: any = {
-    type: "jerry"
-  };
-  try {
-    let result = await init.handler(argv);
-    expect(result).not.toBeDefined();
-  } catch (error) {
-    expect(error.message).toEqual(`Unknown app template "${argv.type}".`);
-  }
+test('Init handler fails for unknown template', async () => {
+	const argv: any = {
+		type: 'jerry',
+	};
+	try {
+		const result = await init.handler(argv);
+		expect(result).not.toBeDefined();
+	} catch (error) {
+		expect(error.message).toEqual(`Unknown app template "${argv.type}".`);
+	}
 });

@@ -11,15 +11,13 @@
   limitations under the License.
 */
 
-import path from "path";
-import fs from "fs";
-import { map } from "ramda";
+import path from 'path';
+import fs from 'fs';
+import { map } from 'ramda';
 
 const readDirR = (dir: string) => {
-  const recur = (f => readDirR(path.join(dir, f)));
-  return fs.statSync(dir).isDirectory()
-    ? Array.prototype.concat(...(fs.readdirSync(dir).map(recur)))
-    : dir;
+	const recur = (f) => readDirR(path.join(dir, f));
+	return fs.statSync(dir).isDirectory() ? Array.prototype.concat(...fs.readdirSync(dir).map(recur)) : dir;
 };
 
 export default readDirR;

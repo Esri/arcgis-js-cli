@@ -11,11 +11,10 @@
   limitations under the License.
 */
 
-import spawn from "cross-spawn-promise";
+import spawn from 'cross-spawn-promise';
 
 // just a wrapper for async spawn command
 
-const installer = (cwd: string, cmd: string, args: any[]) =>
-  spawn(cmd, args, { cwd, stdio: "inherit" });
+const installer = (cwd: string, cmd: string, args: any[]) => spawn(cmd, args, { cwd, stdio: 'inherit' });
 
 export default installer;

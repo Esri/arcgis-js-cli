@@ -15,9 +15,9 @@
 /* global jest */
 
 const installer = jest.fn(() => {
-  return new Promise((resolve, reject) => {
-    process.nextTick(() => resolve());
-  });
+	return new Promise((resolve, reject) => {
+		process.nextTick(() => resolve());
+	});
 });
 
 export default installer;

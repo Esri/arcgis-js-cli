@@ -12,37 +12,31 @@
 */
 
 // @flow
-import fse from "fs-extra";
-import chalk from "chalk";
-// import { compose, map, replace, toLower } from "ramda";
+import fse from 'fs-extra';
+import chalk from 'chalk';
+import { compose, map, replace, toLower } from 'ramda';
 
-const nameTplLower: string => string => string = compose(
-  replace(/<%name-lower%>/g),
-  toLower
-);
+const nameTplLower = compose(replace(/<%name-lower%>/g), toLower);
 
-const nameTpl: string => string => string = replace(/<%name%>/g);
+const nameTpl = replace(/<%name%>/g);
 
 const copyUpdateFiles = (files: string[], name: string): Promise<any> => {
-  const nameUpdate = compose(
-    nameTpl(name),
-    nameTplLower(name)
-  );
-  const widgetName = replace(/WidgetName/g)(name);
-  const updateFiles = map(filename => {
-    let updatedFileName = widgetName(filename);
-    console.info(chalk.green.bold(" widget : ") + updatedFileName + "\n");
-    return fse
-      .copy(filename, updatedFileName)
-      .then(() => {
-        return fse.readFile(filename, "utf-8");
-      })
-      .then(file => {
-        const updatedFile = nameUpdate(file);
-        return fse.writeFile(updatedFileName, updatedFile);
-      });
-  });
-  return Promise.all(updateFiles(files));
+	const nameUpdate = compose(nameTpl(name), nameTplLower(name));
+	const widgetName = replace(/WidgetName/g)(name);
+	const updateFiles = map((filename) => {
+		const updatedFileName = widgetName(filename);
+		console.info(chalk.green.bold(' widget : ') + updatedFileName + '\n');
+		return fse
+			.copy(filename, updatedFileName)
+			.then(() => {
+				return fse.readFile(filename, 'utf-8');
+			})
+			.then((file) => {
+				const updatedFile = nameUpdate(file);
+				return fse.writeFile(updatedFileName, updatedFile);
+			});
+	});
+	return Promise.all(updateFiles(files));
 };
 
 export default copyUpdateFiles;

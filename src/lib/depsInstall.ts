@@ -12,26 +12,24 @@
 */
 
 // @flow
-import chalk from "chalk";
-import installer from "./installer";
+import chalk from 'chalk';
+import installer from './installer';
 
 const depsInstall = async (target: any) => {
-  console.info(chalk.green.bold("Initializing git repository"));
-  try {
-    await installer(target, "git", ["init"]);
-  } catch (error) {
-    console.info(chalk.red.bold("git unavailable"));
-  }
-  console.info(
-    chalk.green.bold("Installing dependencies, this could take a while...")
-  );
-  try {
-    await installer(target, "npm", ["install"]);
-  } catch (error) {
-    console.info(chalk.red.bold("Oops, something went wrong..."));
-  }
-  console.info(chalk.green.bold("Dependencies completed"));
-  return Promise.resolve();
+	console.info(chalk.green.bold('Initializing git repository'));
+	try {
+		await installer(target, 'git', ['init']);
+	} catch (error) {
+		console.info(chalk.red.bold('git unavailable'));
+	}
+	console.info(chalk.green.bold('Installing dependencies, this could take a while...'));
+	try {
+		await installer(target, 'npm', ['install']);
+	} catch (error) {
+		console.info(chalk.red.bold('Oops, something went wrong...'));
+	}
+	console.info(chalk.green.bold('Dependencies completed'));
+	return Promise.resolve();
 };
 
 export default depsInstall;

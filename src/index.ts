@@ -13,20 +13,20 @@
   limitations under the License.
 */
 
-import yargs from "yargs";
+import yargs from 'yargs';
 
-import create from "./commands/create";
-import init from "./commands/init";
-import widget from "./commands/widget";
+import create from './commands/create';
+import init from './commands/init';
+import widget from './commands/widget';
 
 /* eslint no-unused-expressions: 0 */
 yargs
-  .scriptName("arcgis")
-  .command(create)
-  .command(init)
-  .command(widget)
-  .usage("Usage: $0 <name> [dest] -t <type>")
-  .help()
-  .alias("h", "help")
-  .demandCommand()
-  .strict().argv;
+	.scriptName('arcgis')
+	.command(create as any)
+	.command(init as any)
+	.command(widget)
+	.usage('Usage: $0 <name> [dest] -t <type>')
+	.help()
+	.alias('h', 'help')
+	.demandCommand()
+	.strict().argv;

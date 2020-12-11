@@ -13,41 +13,38 @@
 
 /* eslint spaced-comment:0 */
 /* global jest, expect, test, afterEach */
-import createApp from "./createApp";
-import fs from "fs";
-import installer from "./installer";
+import createApp from './createApp';
+import fs from 'fs';
+import installer from './installer';
 
-jest.mock("./installer");
-jest.mock("path");
-jest.mock("ora");
-jest.mock("fs.promises");
+jest.mock('./installer');
+jest.mock('path');
+jest.mock('ora');
+jest.mock('fs.promises');
 
 afterEach(() => {
-  fs.rmdir(
-    "~redcup",
-    () => {}
-  );
-  (fs.promises as any).__RETURN = null;
+	fs.rmdir('~redcup', () => {});
+	(fs.promises as any).__RETURN = null;
 });
 
-test("Will write files and run installer", async () => {
-  (fs.promises as any).__RETURN = `{}`;
-  const argv = {
-    name: "tmp",
-    dest: "~tmp",
-    type: "jsapi"
-  };
-  const spinner = {
-    start: jest.fn(),
-    stop: jest.fn(),
-    succeed: jest.fn(() => {
-      return new Promise((resolve, reject) => {
-        process.nextTick(() => resolve(null));
-      });
-    })
-  };
+test('Will write files and run installer', async () => {
+	(fs.promises as any).__RETURN = `{}`;
+	const argv = {
+		name: 'tmp',
+		dest: '~tmp',
+		type: 'jsapi',
+	};
+	const spinner = {
+		start: jest.fn(),
+		stop: jest.fn(),
+		succeed: jest.fn(() => {
+			return new Promise((resolve, reject) => {
+				process.nextTick(() => resolve(null));
+			});
+		}),
+	};
 
-  await createApp({ argv });
-  expect(fs.promises.writeFile).toBeCalled();
-  expect(installer).toBeCalled();
+	await createApp({ argv });
+	expect(fs.promises.writeFile).toBeCalled();
+	expect(installer).toBeCalled();
 });

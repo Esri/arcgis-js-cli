@@ -12,25 +12,25 @@
 */
 
 // @flow
-import chalk from "chalk";
-import path from "path";
-import fse from "fs-extra";
-import fs from "fs";
-import pkgDir from "pkg-dir";
+import chalk from 'chalk';
+import path from 'path';
+import fse from 'fs-extra';
+import fs from 'fs';
+import pkgDir from 'pkg-dir';
 
 type Args = {
-  name: string,
-  dest?: string,
-  type?: string,
-  cdn: boolean
+	name: string;
+	dest?: string;
+	type?: string;
+	cdn: boolean;
 };
 
-const BASIC = "templates/basic/app";
-const BASIC_CDN = "templates/basic-cdn/app";
-const CALCITE = "templates/calcite/app";
-const CALCITE_CDN = "templates/calcite-cdn/app";
-const REACT = "templates/react/app";
-const VUE = "templates/vue/app";
+const BASIC = 'templates/basic/app';
+const BASIC_CDN = 'templates/basic-cdn/app';
+const CALCITE = 'templates/calcite/app';
+const CALCITE_CDN = 'templates/calcite-cdn/app';
+const REACT = 'templates/react/app';
+const VUE = 'templates/vue/app';
 
 const gitignore = `
 node_modules/*
@@ -51,46 +51,46 @@ coverage-final.*
 coverage/*
 `;
 
-const copyTemplate = async (arg: Args, init: boolean = false) => {
-  let templateDirectory = BASIC;
-  if (arg.cdn) {
-    templateDirectory = BASIC_CDN;
-  }
-  if (arg.type === "react") {
-    templateDirectory = REACT;
-  } else if (arg.type === "vue") {
-    templateDirectory = VUE;
-  } else if (arg.type === "calcite") {
-    templateDirectory = CALCITE;
-    if (arg.cdn) {
-      templateDirectory = CALCITE_CDN;
-    }
-  }
+const copyTemplate = async (arg: Args, init = false) => {
+	let templateDirectory = BASIC;
+	if (arg.cdn) {
+		templateDirectory = BASIC_CDN;
+	}
+	if (arg.type === 'react') {
+		templateDirectory = REACT;
+	} else if (arg.type === 'vue') {
+		templateDirectory = VUE;
+	} else if (arg.type === 'calcite') {
+		templateDirectory = CALCITE;
+		if (arg.cdn) {
+			templateDirectory = CALCITE_CDN;
+		}
+	}
 
-  let target: string;
-  if (!init) {
-    target = path.resolve(process.cwd(), arg.dest || arg.name);
-    if (!fs.existsSync(target)) {
-      console.info(chalk.green.bold(" create : ") + target);
-      fs.mkdirSync(target);
-    }
-  } else {
-    target = path.resolve(process.cwd());
-  }
-  try {
-    const rootDir = await pkgDir(__dirname);
-    await fse.copy(`${rootDir}/${templateDirectory}`, `${target}`);
-    await fse.writeFile(`${target}/.gitignore`, gitignore);
-    // DOES NOT WORK WITH `npm install`
-    // await fse.copy(
-    //   `${rootDir}/${templateDirectory}/.gitignore`,
-    //   `${target}/.gitignore`
-    // );
-  } catch (error) {
-    console.info(error.message);
-  }
+	let target: string;
+	if (!init) {
+		target = path.resolve(process.cwd(), arg.dest || arg.name);
+		if (!fs.existsSync(target)) {
+			console.info(chalk.green.bold(' create : ') + target);
+			fs.mkdirSync(target);
+		}
+	} else {
+		target = path.resolve(process.cwd());
+	}
+	try {
+		const rootDir = await pkgDir(__dirname);
+		await fse.copy(`${rootDir}/${templateDirectory}`, `${target}`);
+		await fse.writeFile(`${target}/.gitignore`, gitignore);
+		// DOES NOT WORK WITH `npm install`
+		// await fse.copy(
+		//   `${rootDir}/${templateDirectory}/.gitignore`,
+		//   `${target}/.gitignore`
+		// );
+	} catch (error) {
+		console.info(error.message);
+	}
 
-  return target;
+	return target;
 };
 
 export default copyTemplate;
