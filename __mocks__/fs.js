@@ -26,9 +26,18 @@ const statSync = jest.fn((...args) => {
 
 const readdirSync = jest.fn(() => []);
 
+const rmdir = jest.fn((...args) => []);
+
+export const promises = {
+  writeFile: jest.fn((...args) => []),
+  readFile: jest.fn((...args) => {})
+};
+
 fs.statSync = statSync;
 fs.readdirSync = readdirSync;
 fs.existsSync = existsSync;
 fs.mkdirSync = mkdirSync;
+fs.rmdir = rmdir;
+fs.promises = promises;
 
 export default fs;

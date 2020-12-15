@@ -1,23 +1,24 @@
 {
   "compilerOptions": {
-    "module": "amd",
+    "module": "ES2015",
     "lib": ["dom", "es2015.promise", "es5", "es6"],
-    "target": "es5",
+    "target": "ES2015",
     "noImplicitAny": true,
     "removeComments": true,
     "jsx": "react",
     "jsxFactory": "tsx",
     "moduleResolution": "node",
-    "esModuleInterop": true,
     "isolatedModules": false,
     "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
     "declaration": false,
     "noLib": false,
     "preserveConstEnums": true,
     "suppressImplicitAnyIndexErrors": true,
     "strictNullChecks": true,
 
-    "outDir": "./build/",
+    "outDir": "output/build",
+    "rootDir": "src",
     "sourceMap": true,
     "noEmitOnError": false,
     "noUnusedLocals": true,
@@ -28,6 +29,6 @@
     "arcgis-js-api"
   ],
   "include": [
-    "src/**/*"
+    "src/**/*.ts"
   ]
 }

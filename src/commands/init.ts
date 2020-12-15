@@ -31,7 +31,7 @@ const init = {
 		type: {
 			alias: 't',
 			describe: 'A project template',
-			choices: ['jsapi', 'react', 'vue', 'calcite'],
+			choices: ['jsapi', 'rollup'],
 			demandOption: false,
 			default: 'jsapi',
 		},
@@ -46,11 +46,7 @@ const init = {
 		argv.name = currentDirectory(process.cwd());
 
 		console.info(chalk.underline(`Initializing ArcGIS project: ${argv.name}\n`));
-		if (argv.cdn && (argv.type === 'react' || argv.type === 'vue')) {
-			console.info(chalk.underline(`NOTE: cdn option only applies for type 'jsapi' and 'calcite'\n`));
-		} else {
-			console.info(chalk.underline(`Use CDN: ${String(argv.cdn)}\n`));
-		}
+		console.info(chalk.underline(`Use CDN: ${String(argv.cdn)}\n`));
 
 		if (argv.type === 'jsapi') {
 			return await createApp({ argv, init: true });

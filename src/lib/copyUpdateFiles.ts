@@ -19,7 +19,7 @@ const nameTplLower = compose(replace(/<%name-lower%>/g), toLower);
 
 const nameTpl = replace(/<%name%>/g);
 
-const copyUpdateFiles = (files: string[], name: string): Promise<any> => {
+const copyUpdateFiles = (files: string[] = [], name: string): Promise<any> => {
 	const nameUpdate = compose(nameTpl(name), nameTplLower(name));
 	const widgetName = replace(/WidgetName/g)(name);
 	const updateFiles = map((filename) => {

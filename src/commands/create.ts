@@ -36,7 +36,7 @@ const create = {
 		type: {
 			alias: 't',
 			describe: 'A project template',
-			choices: ['jsapi', 'react', 'vue', 'calcite'],
+			choices: ['jsapi', 'rollup'],
 			demandOption: false,
 			default: 'jsapi',
 		},
@@ -49,13 +49,9 @@ const create = {
 
 	async handler(argv: CreatArgs) {
 		console.info(chalk.underline(`Creating ArcGIS project: ${argv.name}\n`));
-		if (argv.cdn && (argv.type === 'react' || argv.type === 'vue')) {
-			console.info(chalk.underline(`NOTE: cdn option only applies for type 'jsapi' and 'calcite'\n`));
-		} else {
-			console.info(chalk.underline(`Use CDN: ${String(argv.cdn)}\n`));
-		}
+		console.info(chalk.underline(`Use CDN: ${String(argv.cdn)}\n`));
 
-		if (argv.type === 'jsapi' || argv.type === 'react' || argv.type === 'vue' || argv.type === 'calcite') {
+		if (argv.type === 'jsapi' || argv.type === 'rollup') {
 			return await createApp({ argv });
 		} else {
 			console.info(chalk.red(`Unknown app template "${argv.type}.\n`));

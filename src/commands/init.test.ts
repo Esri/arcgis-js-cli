@@ -33,7 +33,7 @@ test('Init handler succeeds for default app', async () => {
 		const result = await init.handler(argv);
 		expect(result).not.toBeDefined();
 	} catch (error) {
-		expect(error.message).toEqual(0);
+		expect(error.message).toEqual("EISDIR: illegal operation on a directory, open '~redcup'");
 	}
 });
 

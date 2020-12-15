@@ -16,8 +16,8 @@ import fs from 'fs';
 import { map } from 'ramda';
 
 const readDirR = (dir: string) => {
-	const recur = (f) => readDirR(path.join(dir, f));
-	return fs.statSync(dir).isDirectory() ? Array.prototype.concat(...fs.readdirSync(dir).map(recur)) : dir;
+	const recur = map((f) => readDirR(path.join(dir, f)));
+	return fs.statSync(dir).isDirectory() ? Array.prototype.concat(...recur(fs.readdirSync(dir) || [])) : [dir];
 };
 
 export default readDirR;

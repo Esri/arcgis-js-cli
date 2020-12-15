@@ -23,11 +23,11 @@ export default {
   },
   plugins: [
     del({ targets: OUTPUT }),
+    typescript(),
     eslint({
       fix: true,
       exclude: ['node_modules/**', 'src/**/*.css']
     }),
-    typescript(),
     MINIFY,
     postcss({
       extensions: ['.css'],

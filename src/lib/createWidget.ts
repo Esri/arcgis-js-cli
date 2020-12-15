@@ -37,6 +37,7 @@ const createWidget = async ({ argv }: any) => {
 	try {
 		const data: any = await fs.promises.readFile(path.resolve(process.cwd(), 'package.json'));
 		pkg = JSON.parse(data);
+		console.log(pkg);
 		if (!pkg || (pkg && pkg.arcgis.type !== 'jsapi' && pkg.arcgis.type !== 'exb')) {
 			console.info(
 				chalk.red.bold(

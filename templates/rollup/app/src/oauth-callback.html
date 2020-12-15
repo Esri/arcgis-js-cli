@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      function loadHandler() {
+        if (opener) {
+          if (location.hash) {
+            // opener.console.log("oauth callback href:", location.href);
+            if (typeof opener.require === "function" && opener.require("esri/kernel")) {
+              opener.require("esri/kernel").id.setOAuthResponseHash(location.hash);
+            } else {
+              opener.dispatchEvent(new CustomEvent("arcgis:auth:hash", { detail: location.hash }));
+            }
+            close();
+          }
+        } else {
+          close();
+        }
+      }
+    </script>
+  </head>
+  <body onload="loadHandler();"></body>
+</html>

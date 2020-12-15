@@ -20,15 +20,15 @@ import installer from './installer';
 jest.mock('./installer');
 jest.mock('path');
 jest.mock('ora');
-jest.mock('fs.promises');
+jest.mock('fs');
 
 afterEach(() => {
 	fs.rmdir('~redcup', () => {});
-	(fs.promises as any).__RETURN = null;
+	// (fs.promises as any).__RETURN = null;
 });
 
 test('Will write files and run installer', async () => {
-	(fs.promises as any).__RETURN = `{}`;
+	// (fs.promises as any).__RETURN = `{}`;
 	const argv = {
 		name: 'tmp',
 		dest: '~tmp',
