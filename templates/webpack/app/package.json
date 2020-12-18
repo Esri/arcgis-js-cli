@@ -2,7 +2,7 @@
   "name": "jsapi-cli-template-app",
   "version": "0.0.1",
   "devDependencies": {
-    "@arcgis/webpack-plugin": "^4.18.0-next.20201029",
+    "@arcgis/webpack-plugin": "~4.18.0",
     "@babel/cli": "^7.12.1",
     "@babel/core": "^7.12.3",
     "@babel/plugin-proposal-class-properties": "^7.12.1",
@@ -107,7 +107,7 @@
     ]
   },
   "dependencies": {
-    "@arcgis/core": "^4.18.0-next.20201117",
+    "@arcgis/core": "~4.18.0",
     "@babel/polyfill": "^7.12.1"
   },
   "arcgis": {
