@@ -6,6 +6,9 @@
   "bin": {
     "arcgis": "dist/index.js"
   },
+  "engines" : {
+    "node" : ">=12.20.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/esri/arcgis-js-cli.git"
