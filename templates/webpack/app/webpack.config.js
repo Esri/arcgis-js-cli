@@ -38,6 +38,14 @@ module.exports = function build(env, arg) {
           exclude: /node_modules/,
         },
         {
+          test: /\.(ttf|eot|svg|png|jpg|gif|ico|wsv|otf|woff(2)?)(\?[a-z0-9]+)?$/,
+          use: [
+            {
+              loader: 'file-loader'
+            }
+          ]
+        },
+        {
           test: /\.css$/,
           include: path.resolve(__dirname, 'src'),
           exclude: /node_modules/,
