@@ -1,6 +1,6 @@
 /* eslint spaced-comment:0 */
 /*
-  Copyright 2018 Esri
+  Copyright 2020 Esri
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
   You may obtain a copy of the License at
@@ -26,9 +26,18 @@ const statSync = jest.fn((...args) => {
 
 const readdirSync = jest.fn(() => []);
 
+const rmdir = jest.fn((...args) => []);
+
+export const promises = {
+  writeFile: jest.fn((...args) => []),
+  readFile: jest.fn((...args) => {})
+};
+
 fs.statSync = statSync;
 fs.readdirSync = readdirSync;
 fs.existsSync = existsSync;
 fs.mkdirSync = mkdirSync;
+fs.rmdir = rmdir;
+fs.promises = promises;
 
 export default fs;

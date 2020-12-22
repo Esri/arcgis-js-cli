@@ -42,31 +42,24 @@ Commands:
 
 ## Quick Start
 
-> default template application
+> default template webpack application
 ```sh
 arcgis create jsapi-app
 ```
 
-> react template application
+> rollup template application
 ```sh
-arcgis create jsapi-react-app -t react
+arcgis create jsapi-rollup-app -t rollup
 ```
 
-> vue template application
+> template application using CDN
 ```sh
-arcgis create jsapi-vue-app -t vue
-```
-
-> calcite-app-components template application using CDN
-```sh
-arcgis create jsapi-calcite-app -t calcite --cdn
+arcgis create jsapi-cdn --cdn
 ```
 
 ## Sample Apps
 
 * [ArcGIS Basic App](https://jsapi-basic-416.surge.sh/)
-* [ArcGIS React App](https://jsapi-react-416.surge.sh/)
-* [ArcGIS Vue App](https://jsapi-vue-416.surge.sh/)
 
 
 ## Features
@@ -80,12 +73,12 @@ $ arcgis create <name> [dest]
 Create a new application.
 
 Options:
-  --version   Show version number                                      [boolean]
+  --version   Show version number                                                        [boolean]
   --name, -n  directory and package name for the new app
   --dest      Directory to create the application in                                     [default: <name>]
-  --type, -t  A project template           [choices: "jsapi". "react", "vue", "calcite"] [default: "jsapi"]
-  --cdn       Project template using JSAPI CDN (only valid with default or calcite)      [default: false]
-  -h, --help  Show help                                                [boolean]
+  --type, -t  A project template           [choices: "jsapi". "rollup"] [default: "jsapi"]
+  --cdn       Project template using JSAPI CDN (outputs a rollup app with CDN)           [default: false]
+  -h, --help  Show help                                                                  [boolean]
 
 ```
 
@@ -97,10 +90,10 @@ $ arcgis init [type]
 Initialize a new application in current directory
 
 Options:
-  --version   Show version number                                      [boolean]
-  --type, -t  A project template           [choices: "jsapi". "react", "vue", "calcite"] [default: "jsapi"]
+  --version   Show version number                                                        [boolean]
+  --type, -t  A project template           [choices: "jsapi". "rollup"]                  [default: "jsapi"]
   --cdn       Project template using JSAPI CDN (only valid with default or calcite)      [default: false]
-  -h, --help  Show help                                                [boolean]
+  -h, --help  Show help                                                                  [boolean]
 ```
 
 Create a new widget

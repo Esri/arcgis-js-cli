@@ -1,0 +1,43 @@
+:root {
+  --blue: #0079c1;
+  --gray: #efefef;
+  --white: #fff;
+}
+
+@import '~@arcgis/core/assets/esri/themes/light/main.css';
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--gray);
+  font-family: Avenir Next W01,Avenir Next W00,Avenir Next,Avenir,Helvetica Neue,sans-serif;
+}
+
+.header {
+  background-color: var(--blue);
+  color: var(--white);
+}
+
+.heading {
+  padding-left: 0.75rem;
+}
+
+.app-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* map view */
+#viewDiv {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}

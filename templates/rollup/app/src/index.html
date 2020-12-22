@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<meta name="mobile-web-app-capable" content="yes" />
+    <link rel="stylesheet" href="assets/esri/themes/light/main.css" />
+    <link href="index.css" rel="stylesheet">
+		<title>ArcGIS Template Application</title>
+		<script>
+			// Check that service workers are registered
+			if ('serviceWorker' in navigator) {
+				// Use the window load event to keep the page load performant
+				window.addEventListener('load', function () {
+					navigator.serviceWorker.register('./service-worker.js').catch(function () {
+						console.log('Service Worker not loaded');
+					});
+				});
+			}
+		</script>
+	</head>
+	<body>
+		<noscript> JavaScript is required in order to use this app </noscript>
+		<div class="app-container">
+			<header class="header">
+				<h2 class="heading">ArcGIS Template Application</h2>
+			</header>
+			<div id="viewDiv"></div>
+    </div>
+    <script src="index.js" type="module"></script>
+	</body>
+</html>

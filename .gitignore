@@ -7,3 +7,4 @@ yarn.lock
 package-lock.json
 .DS_Store
 ~redcup
+assets/
