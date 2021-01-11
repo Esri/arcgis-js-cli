@@ -1,7 +1,18 @@
-node_modules
-coverage
-dist
-debug.log
-
 # override cli .gitignore
+# can be removed from scaffolded app
 !src/assets
+
+node_modules/*
+.vscode/*
+build/*
+dist/*
+html-report/*
+~tmp/*
+.baseDir*
+.tsdrc
+.tscache
+npm-debug.log
+coverage-final.*
+*.env
+coverage/*
+debug.log
