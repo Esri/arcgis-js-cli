@@ -93,7 +93,7 @@ module.exports = (_, args) => {
 
     // Entry points.
     entry: {
-      index: ['./src/index.scss', './src/index.ts'],
+      index: ['./src/index.scss', '@babel/polyfill', './src/index.ts'],
     },
 
     // Output parameters.
@@ -132,6 +132,11 @@ module.exports = (_, args) => {
     // Module handling and loaders.
     module: {
       rules: [
+        {
+          test: /\.(ts|js)x?$/,
+          exclude: /node_modules/,
+          loader: 'babel-loader'
+        },
         {
           test: /\.tsx?$/,
           use: [

@@ -12,13 +12,18 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@arcgis/core": "^4.18.1"
+    "@arcgis/core": "^4.18.1",
+    "@babel/polyfill": "^7.12.1"
   },
   "devDependencies": {
     "@arcgis/webpack-plugin": "^4.18.0",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/plugin-proposal-decorators": "^7.12.12",
+    "@babel/preset-typescript": "^7.12.7",
     "@types/jest": "^26.0.20",
     "@typescript-eslint/eslint-plugin": "^4.12.0",
     "@typescript-eslint/parser": "^4.12.0",
+    "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^7.0.0",
     "css-loader": "^5.0.1",
@@ -55,6 +60,16 @@
     "lint": "eslint . --ext .js,.ts,.tsx",
     "test": "jest --coverage --passWithNoTests",
     "precommit": "lint-staged"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-typescript"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties",
+      ["@babel/plugin-proposal-decorators", { "legacy": true }]
+    ]
   },
   "eslintConfig": {
     "env": {
