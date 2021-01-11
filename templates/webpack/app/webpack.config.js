@@ -16,7 +16,7 @@ const path = require('path');
 // Application information.
 const title = 'ArcGIS Webpack Template';
 const description = 'ArcGIS API for JavaScript Webpack template application.';
-const themeColor = '#FFFFFF';
+const themeColor = '#007ac2';
 const deployUrl = 'https://localhost:8080/';
 const appImageUrl = 'socialcard.png';
 

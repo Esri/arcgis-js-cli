@@ -4,9 +4,8 @@ import TileLayer from '@arcgis/core/layers/TileLayer';
 import VectorTileLayer from '@arcgis/core/layers/VectorTileLayer';
 import FeatureLayer from '@arcgis/core/layers/FeatureLayer';
 import SearchViewModel from '@arcgis/core/widgets/Search/SearchViewModel';
-import Legend from '@arcgis/core/widgets/Legend';
-import LayerList from '@arcgis/core/widgets/LayerList';
 import App from 'app/App';
+import { initWidgets } from './widgets';
 
 const featureLayer = new FeatureLayer({
   portalItem: {
@@ -61,19 +60,6 @@ const app = new App({
   container: document.createElement('div'),
 });
 
-view.when(() => {
-  view.ui.add(
-    new Legend({
-      view,
-    }),
-    'bottom-left',
-  );
-  view.ui.add(
-    new LayerList({
-      view,
-    }),
-    'top-right',
-  );
-});
+view.when(initWidgets);
 
 document.body.append(app.container);
