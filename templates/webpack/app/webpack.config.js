@@ -135,7 +135,7 @@ module.exports = (_, args) => {
         {
           test: /\.(ts|js)x?$/,
           exclude: /node_modules/,
-          loader: 'babel-loader'
+          loader: 'babel-loader',
         },
         {
           test: /\.tsx?$/,
