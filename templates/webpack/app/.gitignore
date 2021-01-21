@@ -1,3 +1,7 @@
+# override cli .gitignore
+# can be removed from scaffolded app
+!src/assets
+
 node_modules/*
 .vscode/*
 build/*
@@ -8,8 +12,7 @@ html-report/*
 .tsdrc
 .tscache
 npm-debug.log
-yarn.lock
-package-lock.json
 coverage-final.*
 *.env
-coverage/
+coverage/*
+debug.log
