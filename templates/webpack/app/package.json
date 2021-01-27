@@ -21,23 +21,23 @@
     "@babel/plugin-proposal-decorators": "^7.12.12",
     "@babel/preset-typescript": "^7.12.7",
     "@types/jest": "^26.0.20",
-    "@typescript-eslint/eslint-plugin": "^4.12.0",
-    "@typescript-eslint/parser": "^4.12.0",
+    "@typescript-eslint/eslint-plugin": "^4.14.1",
+    "@typescript-eslint/parser": "^4.14.1",
     "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^7.0.0",
     "css-loader": "^5.0.1",
     "css-minimizer-webpack-plugin": "^1.2.0",
-    "eslint": "^7.17.0",
-    "eslint-config-prettier": "^7.1.0",
+    "eslint": "^7.18.0",
+    "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-prettier": "^3.3.1",
     "file-loader": "^6.2.0",
-    "html-inline-css-webpack-plugin": "^1.9.1",
+    "html-inline-css-webpack-plugin": "^1.10.0",
     "html-webpack-plugin": "^5.0.0-alpha.7",
-    "husky": "^4.3.7",
+    "husky": "^4.3.8",
     "jest": "^26.6.3",
     "lint-staged": "^10.5.3",
-    "mini-css-extract-plugin": "^1.3.3",
+    "mini-css-extract-plugin": "^1.3.4",
     "node-sass": "^5.0.0",
     "prettier": "^2.2.1",
     "resolve-url-loader": "^3.1.2",
@@ -47,9 +47,9 @@
     "ts-loader": "^8.0.14",
     "tslib": "^2.1.0",
     "typescript": "^4.1.3",
-    "webpack": "^5.12.3",
-    "webpack-cli": "^4.3.1",
-    "webpack-dev-server": "^3.11.1",
+    "webpack": "^5.18.0",
+    "webpack-cli": "^4.4.0",
+    "webpack-dev-server": "^3.11.2",
     "workbox-webpack-plugin": "^6.0.2"
   },
   "scripts": {
@@ -136,6 +136,6 @@
     ]
   },
   "arcgis": {
-    "type": "jsapi"
+    "type": "arcgis-core"
   }
 }

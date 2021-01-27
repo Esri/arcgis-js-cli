@@ -63,7 +63,7 @@ const devServer = {
 // Webpack devtool for source map generation.
 // https://webpack.js.org/configuration/devtool/
 const developmentDevtool = 'eval';
-const productionDevtool = 'source-map';
+const productionDevtool = false;
 
 // Add any aliases to config.resolve.
 // Useful for aliasing packages or paths in source.
@@ -202,6 +202,14 @@ module.exports = (_, args) => {
       alias: resolveAlias || {},
       extensions: ['.ts', '.tsx', '.js', '.scss', '.css'],
     },
+
+    // Suppress @arcgis/core/workers warnings.
+    ignoreWarnings: [
+      {
+        module: /\/@arcgis\/core\//,
+        message: /Critical dependency: the request of a dependency is an expression/,
+      },
+    ],
 
     // Webpack plugins.
     plugins: [
