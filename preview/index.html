@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+
+    <title>Custom theme preview</title>
+
+    <style>
+      html,
+      body,
+      #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+    <link rel="stylesheet" href="../main.css" />
+
+    <script src="https://js.arcgis.com/4.18/"></script>
+
+    <script>
+      require([
+        "esri/widgets/Compass",
+        "esri/widgets/Expand",
+        "esri/widgets/Home",
+        "esri/widgets/LayerList",
+        "esri/widgets/Legend",
+        "esri/widgets/Search",
+        "esri/Map",
+        "esri/views/MapView"
+      ], function(
+        Compass,
+        Expand,
+        Home,
+        LayerList,
+        Legend,
+        Search,
+        Map,
+        MapView
+      ) {
+        var map = new Map({
+          basemap: "streets"
+        });
+
+        var view = new MapView({
+          container: "viewDiv",
+          map: map,
+          zoom: 13,
+          center: [-117.1825899999999, 34.055411433014434]
+        });
+
+        // Compass Widget
+        var compass = new Compass({
+          view: view
+        });
+        view.ui.add(compass, "top-left");
+
+        // Home Widget
+        var home = new Home({
+          view: view
+        });
+        view.ui.add(home, "top-left");
+
+        // LayerList Widget
+        var layerList = new LayerList({
+          view: view
+        });
+        var layerListExpand = new Expand({
+          view: view,
+          content: layerList,
+          expanded: true
+        });
+        view.ui.add(layerListExpand, "top-left");
+
+        // Legend Widget
+        var legend = new Legend({
+          view: view
+        });
+        var legendExpand = new Expand({
+          view: view,
+          content: legend,
+          expanded: true
+        });
+        view.ui.add(legendExpand, "bottom-left");
+
+        // Search Widget
+        var search = new Search({
+          view: view
+        });
+        view.ui.add(search, "top-right");
+        view.when(function() {
+          search.search("Redlands, CA");
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="viewDiv"></div>
+  </body>
+</html>

@@ -38,6 +38,8 @@ Commands:
   arcgis create <name> [dest]  Create a new application.
   arcgis init [type]           Initialize a new application in current directory
   arcgis widget <name> [type]  Create a new Widget.
+  arcgis styles <subcommand>   Run commands to work with a custom CSS
+                               theme
 ```
 
 ## Quick Start
@@ -65,7 +67,7 @@ arcgis create jsapi-cdn --cdn
 ## Features
 
 
-Create a new application
+### Create a new application
 
 ```sh
 $ arcgis create <name> [dest]
@@ -82,7 +84,7 @@ Options:
 
 ```
 
-Initialize a new application in current directory
+### Initialize a new application in current directory
 
 ```sh
 $ arcgis init [type]
@@ -96,7 +98,7 @@ Options:
   -h, --help  Show help                                                                  [boolean]
 ```
 
-Create a new widget
+### Create a new widget
 
 ```sh
 $ arcgis widget <name> [type]
@@ -110,7 +112,7 @@ Options:
   -h, --help  Show help                                                [boolean]
 ```
 
-### Experience Builder Widgets
+#### Experience Builder Widgets
 
 The CLI can be used to scaffold custom widgets for the [ArcGIS Experience Builder Developer Edition](https://www.esri.com/en-us/arcgis/products/arcgis-experience-builder/overview).
 
@@ -124,6 +126,122 @@ This will install your widget in the Experience Builder folder structure as foll
 
 ```
 <Experience-Builder-Installation>\client\your-extensions\widgets\MyWidget\
+```
+      
+### Author a custom theme
+
+Create a new CSS theme.
+
+```sh
+$ arcgis styles <subcommand>
+
+Run subcommands to work with a custom CSS theme
+
+Commands:
+  arcgis styles create [theme]   Create a custom theme
+  arcgis styles preview [theme]  Launch theme-preview test page
+  arcgis styles eject [theme]    Eject a built theme ready for deployment
+  arcgis styles list             List existing themes in the current project
+  arcgis styles clean            Removes any local scaffolding. This should be
+                                 used when no more theme authoring is to be done
+                                 in the working directory.
+  arcgis styles scaffold         Sets up project scaffolding. This is done
+                                 automatically when creating a theme for the
+                                 first time.
+```
+
+#### Create a new theme
+
+```sh
+$ arcgis styles create [theme]
+
+Create a custom theme
+
+Positionals:
+  theme  the name of the theme to create   [string] [default: "my-custom-theme"]
+
+Options:
+      --version            Show version number                             [boolean]
+      -e, --with-examples  when specified, the created theme will include examples
+                           from the API                                    [boolean]
+      -b, --with-base      when specified, the created theme will include base files
+                           for local overrides (advanced)                  [boolean]
+      -f, --force          overwrites a theme if it already exists         [boolean]
+      -h, --help           Show help                                       [boolean]
+```
+
+#### Preview a theme
+
+```sh
+$ arcgis styles preview [theme]
+
+Launch theme-preview test page
+
+Positionals:
+  theme  the name of the theme to preview (this is only needed if there is more
+         than one theme in the workspace)  [string] [default: "my-custom-theme"]
+
+Options:
+      --version      Show version number                                   [boolean]
+      -p, --port     port to use for the preview page                       [number]
+      -h, --help     Show help                                             [boolean]
+```
+                     
+#### Eject a theme 
+
+```sh
+$ arcgis styles eject [theme]
+
+Eject a built theme ready for deployment
+
+Positionals:
+  theme  the name of the theme to eject (this is only needed if there is more
+         than one theme in the workspace)  [string] [default: "my-custom-theme"]
+
+Options:
+      --version      Show version number                                   [boolean]
+      -h, --help     Show help                                             [boolean]
+```
+
+#### List themes
+
+```sh
+$ arcgis styles list
+
+List existing themes in the current project
+
+Options:
+      --version      Show version number                                   [boolean]
+      -h, --help     Show help                                             [boolean]
+```
+
+#### Clean themes workspace
+
+```sh
+$ arcgis styles clean
+
+Removes any local scaffolding. This should be used when no more theme authoring
+is to be done in the working directory.
+
+Options:
+      --version      Show version number                                   [boolean]
+      -f, --force    required to clean any local scaffolding used by this utility
+                                                                           [boolean]
+      -h, --help     Show help                                             [boolean]
+```
+
+#### Scaffold styling workspace
+
+```sh
+$ arcgis styles scaffold
+
+Sets up project scaffolding. This is done automatically when creating a theme
+for the first time.
+
+Options:
+      --version      Show version number                                   [boolean]
+      -f, --force    forces creation of project scaffolding                [boolean]
+      -h, --help     Show help                                             [boolean]
 ```
 
 ## Issues
