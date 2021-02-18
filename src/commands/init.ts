@@ -15,6 +15,7 @@ import chalk from 'chalk';
 import { compose, last, split } from 'ramda';
 
 import createApp from '../lib/createApp';
+import { PositionalOptionsType } from 'yargs';
 
 const currentDirectory = compose(last, split('/'));
 
@@ -38,7 +39,7 @@ const init = {
 		cdn: {
 			describe: 'Project template using JSAPI CDN (only valid with default or calcite)',
 			default: false,
-			type: 'boolean',
+			type: 'boolean' as PositionalOptionsType,
 		},
 	},
 

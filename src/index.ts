@@ -21,9 +21,12 @@ import widget from './commands/widget';
 
 yargs
 	.scriptName('arcgis')
-	.command(create as any)
-	.command(init as any)
+	.command(create)
+	.command(init)
 	.command(widget)
+	/* eslint-disable @typescript-eslint/no-var-requires */
+	.command(require('./commands/styles'))
+	/* eslint-enable @typescript-eslint/no-var-requires */
 	.usage('Usage: $0 <name> [dest] -t <type>')
 	.help()
 	.alias('h', 'help')

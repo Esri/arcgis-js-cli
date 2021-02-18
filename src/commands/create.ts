@@ -13,6 +13,7 @@
 
 import chalk from 'chalk';
 import createApp from '../lib/createApp';
+import { PositionalOptionsType } from 'yargs';
 
 type CreatArgs = {
 	name: string;
@@ -43,7 +44,7 @@ const create = {
 		cdn: {
 			describe: 'Project template using JSAPI CDN (only valid with default or calcite)',
 			default: false,
-			type: 'boolean',
+			type: 'boolean' as PositionalOptionsType,
 		},
 	},
 
