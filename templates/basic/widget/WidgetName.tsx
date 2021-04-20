@@ -1,10 +1,6 @@
 import { property, subclass } from '@arcgis/core/core/accessorSupport/decorators';
 
-/**
- * renderable will be depreciated (possibly removed?) in 4.19 as
- * all @property() decorated properties will be watched
- */
-import { renderable, tsx } from '@arcgis/core/widgets/support/widget';
+import { tsx } from '@arcgis/core/widgets/support/widget';
 
 import Widget from '@arcgis/core/widgets/Widget';
 
@@ -38,13 +34,11 @@ export default class <%name%> extends Widget {
   @property({
     aliasOf: 'viewModel.name',
   })
-  @renderable()
   name = '';
 
   @property({
     type: <%name%>ViewModel,
   })
-  @renderable()
   viewModel = new <%name%>ViewModel();
 
   constructor(properties?: <%name%>Properties) {

@@ -5,7 +5,6 @@ import postcss from 'rollup-plugin-postcss'
 import resolve from '@rollup/plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
 import typescript from '@rollup/plugin-typescript';
-// import html from '@rollup/plugin-html';
 
 import fs from 'fs';
 import path from 'path';
@@ -14,14 +13,9 @@ import path from 'path';
 // `npm run dev` -> `production` is false
 const production = !process.env.ROLLUP_WATCH;
 
-// const src = (...args) => path.join('src', ...args);
-
-// const indexPage = fs.readFileSync(path.resolve(__dirname, 'src/index.html'), 'utf-8');
-
 export default {
   input: 'src/index.ts',
   output: {
-    // entryFileNames: '[name].js',
     chunkFileNames: 'chunks/[name].[hash].js',
     dir: 'dist',
     format: 'es'
@@ -40,8 +34,7 @@ export default {
     copy({
       targets: [
         { src: 'src/index.html', dest: 'dist/' },
-        { src: 'src/oauth-callback.html', dest: 'dist/' },
-        { src: 'node_modules/@arcgis/core/assets/', dest: 'dist/' }
+        { src: 'src/oauth-callback.html', dest: 'dist/' }
       ],
       copyOnce: true
     })

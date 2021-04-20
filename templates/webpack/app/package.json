@@ -12,8 +12,8 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@arcgis/core": "next",
-    "@arcgis/webpack-plugin": "^4.19.0-next20210225",
+    "@arcgis/core": "~4.19.0",
+    "@arcgis/webpack-plugin": "~4.19.0",
     "@babel/polyfill": "^7.12.1"
   },
   "devDependencies": {
