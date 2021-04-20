@@ -34,7 +34,6 @@ test('Create handler succeeds for default app', async () => {
 	const argv = {
 		type: 'jsapi',
 		name: 'testapp',
-		cdn: false,
 	};
 	try {
 		const result = await create.handler(argv);

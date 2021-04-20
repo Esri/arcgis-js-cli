@@ -13,13 +13,11 @@
 
 import chalk from 'chalk';
 import createApp from '../lib/createApp';
-import { PositionalOptionsType } from 'yargs';
 
 type CreatArgs = {
 	name: string;
 	dest?: string;
 	type: string;
-	cdn: boolean;
 };
 
 const create = {
@@ -41,16 +39,10 @@ const create = {
 			demandOption: false,
 			default: 'jsapi',
 		},
-		cdn: {
-			describe: 'Project template using JSAPI CDN (only valid with default or calcite)',
-			default: false,
-			type: 'boolean' as PositionalOptionsType,
-		},
 	},
 
-	async handler(argv: CreatArgs) {
+	async handler(argv: CreatArgs): Promise<void> {
 		console.info(chalk.underline(`Creating ArcGIS project: ${argv.name}\n`));
-		console.info(chalk.underline(`Use CDN: ${String(argv.cdn)}\n`));
 
 		if (argv.type === 'jsapi' || argv.type === 'rollup') {
 			return await createApp({ argv });

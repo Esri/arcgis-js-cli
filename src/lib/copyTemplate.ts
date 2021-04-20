@@ -21,11 +21,9 @@ type Args = {
 	name: string;
 	dest?: string;
 	type?: string;
-	cdn: boolean;
 };
 
 const BASIC = 'templates/webpack/app';
-const BASIC_CDN = 'templates/basic-cdn/app';
 const ROLLUP = 'templates/rollup/app';
 
 const gitignore = `
@@ -47,11 +45,8 @@ coverage-final.*
 coverage/*
 `;
 
-const copyTemplate = async (arg: Args, init = false) => {
+const copyTemplate = async (arg: Args, init = false): Promise<string> => {
 	let templateDirectory = BASIC;
-	if (arg.cdn) {
-		templateDirectory = BASIC_CDN;
-	}
 	if (arg.type === 'rollup') {
 		templateDirectory = ROLLUP;
 	}

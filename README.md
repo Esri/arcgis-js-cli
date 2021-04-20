@@ -54,11 +54,6 @@ arcgis create jsapi-app
 arcgis create jsapi-rollup-app -t rollup
 ```
 
-> template application using CDN
-```sh
-arcgis create jsapi-cdn --cdn
-```
-
 ## Sample Apps
 
 * [ArcGIS Basic App](https://jsapi-basic-416.surge.sh/)
@@ -79,7 +74,6 @@ Options:
   --name, -n  directory and package name for the new app
   --dest      Directory to create the application in                                     [default: <name>]
   --type, -t  A project template           [choices: "jsapi". "rollup"] [default: "jsapi"]
-  --cdn       Project template using JSAPI CDN (outputs a rollup app with CDN)           [default: false]
   -h, --help  Show help                                                                  [boolean]
 
 ```
@@ -94,7 +88,6 @@ Initialize a new application in current directory
 Options:
   --version   Show version number                                                        [boolean]
   --type, -t  A project template           [choices: "jsapi". "rollup"]                  [default: "jsapi"]
-  --cdn       Project template using JSAPI CDN (only valid with default or calcite)      [default: false]
   -h, --help  Show help                                                                  [boolean]
 ```
 

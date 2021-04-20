@@ -1,6 +1,6 @@
 {
   "name": "@arcgis/cli",
-  "version": "4.18.1",
+  "version": "4.19.0",
   "description": "CLI to scaffold ArcGIS API for JavaScript applications",
   "main": "dist/index.js",
   "bin": {

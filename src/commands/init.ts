@@ -22,7 +22,6 @@ const currentDirectory = compose(last, split('/'));
 type InitArgs = {
 	type: string;
 	name: string;
-	cdn: boolean;
 };
 
 const init = {
@@ -36,18 +35,12 @@ const init = {
 			demandOption: false,
 			default: 'jsapi',
 		},
-		cdn: {
-			describe: 'Project template using JSAPI CDN (only valid with default or calcite)',
-			default: false,
-			type: 'boolean' as PositionalOptionsType,
-		},
 	},
 
-	async handler(argv: InitArgs) {
+	async handler(argv: InitArgs): Promise<void> {
 		argv.name = currentDirectory(process.cwd());
 
 		console.info(chalk.underline(`Initializing ArcGIS project: ${argv.name}\n`));
-		console.info(chalk.underline(`Use CDN: ${String(argv.cdn)}\n`));
 
 		if (argv.type === 'jsapi') {
 			return await createApp({ argv, init: true });
