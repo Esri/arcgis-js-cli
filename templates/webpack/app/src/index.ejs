@@ -24,5 +24,12 @@
 </head>
 <body>
   <noscript>JavaScript is required to run this application.</noscript>
+  <div class="app">
+    <header class="app--header">
+      <div class="app--header-title"><%= htmlWebpackPlugin.options.title %></div>
+      <div class="app--header-search" id="searchDiv"></div>
+    </header>
+    <div class="app--view" id="viewDiv"></div>
+  </div>
 </body>
 </html>

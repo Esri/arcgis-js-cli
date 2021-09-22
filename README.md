@@ -49,9 +49,9 @@ Commands:
 arcgis create jsapi-app
 ```
 
-> rollup template application
+> vite template application
 ```sh
-arcgis create jsapi-rollup-app -t rollup
+arcgis create jsapi-vite-app -t vite
 ```
 
 ## Sample Apps
@@ -73,7 +73,7 @@ Options:
   --version   Show version number                                                        [boolean]
   --name, -n  directory and package name for the new app
   --dest      Directory to create the application in                                     [default: <name>]
-  --type, -t  A project template           [choices: "jsapi". "rollup"] [default: "jsapi"]
+  --type, -t  A project template           [choices: "jsapi". "vite"] [default: "jsapi"]
   -h, --help  Show help                                                                  [boolean]
 
 ```
@@ -87,7 +87,7 @@ Initialize a new application in current directory
 
 Options:
   --version   Show version number                                                        [boolean]
-  --type, -t  A project template           [choices: "jsapi". "rollup"]                  [default: "jsapi"]
+  --type, -t  A project template           [choices: "jsapi". "vite"]                  [default: "jsapi"]
   -h, --help  Show help                                                                  [boolean]
 ```
 

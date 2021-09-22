@@ -1,7 +1,3 @@
-# override cli .gitignore
-# can be removed from scaffolded app
-!src/assets
-
 node_modules/*
 .vscode/*
 build/*
@@ -14,6 +10,9 @@ html-report/*
 npm-debug.log
 coverage-final.*
 *.env
-*.env.local
+*.local
 coverage/*
 debug.log
+coverage
+.DS_Store
+dist-ssr

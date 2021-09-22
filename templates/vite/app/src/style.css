@@ -1,0 +1,62 @@
+/*************************************************
+  Custom ArcGIS JavaScript API theming.
+*************************************************/
+@import url("https://js.arcgis.com/4.21/esri/themes/light/main.css");
+
+@import "./_variables.css";
+
+/*************************************************
+  Add application and widget styles.
+*************************************************/
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  font-size: 14px;
+}
+
+.app {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.app--header {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+  width: 100%;
+  background-color: var(--main-bg-color);
+  color: var(--font-color-white);
+}
+
+.app--header-title {
+  font-size: 20px;
+  font-weight: 500;
+  margin-left: 0.5rem;
+}
+
+@media screen and (min-width: 880px) {
+  .app--header-search.esri-search {
+    width: 340px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .app--header-search.esri-search {
+    width: 640px;
+  }
+}
+
+.app--view {
+  width: 100%;
+  height: calc(100% - 40px);
+}
