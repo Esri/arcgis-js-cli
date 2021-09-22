@@ -1,22 +1,11 @@
-# ArcGIS API for JavaScript Template Application
+# ArcGIS API for JavaScript with webpack
 
-## Usage
+This project was bootstrapped with the [`@arcgis/cli`](https://github.com/Esri/arcgis-js-cli).
 
-This application is written in [TypeScript](http://www.typescriptlang.org/) and utilizes the [`@arcgis/webpack-plugin`](https://github.com/Esri/arcgis-webpack-plugin).
+For additional information, see the [Build with ES modules](https://developers.arcgis.com/javascript/latest/es-modules/) Guide topic in the SDK.
 
-You can develop, test, and build the application using various commands.
+## Commands
 
-Run the application in development mode with a local development server.
-```sh
-npm start
-```
-
-Run the unit tests for the application. Unit tests are written with [Jest](https://jestjs.io/).
-```sh
-npm test
-```
-
-Build the application for deployment.
-```sh
-npm run build
-```
+- `npm start` to run in development mode.
+- `npm run build` to create a deployable build.
+- `npm test` to run tests.

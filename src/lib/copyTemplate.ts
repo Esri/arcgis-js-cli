@@ -24,7 +24,7 @@ type Args = {
 };
 
 const BASIC = 'templates/webpack/app';
-const ROLLUP = 'templates/rollup/app';
+const VITE = 'templates/vite/app';
 
 const gitignore = `
 node_modules/*
@@ -47,8 +47,8 @@ coverage/*
 
 const copyTemplate = async (arg: Args, init = false): Promise<string> => {
 	let templateDirectory = BASIC;
-	if (arg.type === 'rollup') {
-		templateDirectory = ROLLUP;
+	if (arg.type === 'vite') {
+		templateDirectory = VITE;
 	}
 
 	let target: string;

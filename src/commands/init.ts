@@ -31,7 +31,7 @@ const init = {
 		type: {
 			alias: 't',
 			describe: 'A project template',
-			choices: ['jsapi', 'rollup'],
+			choices: ['jsapi', 'vite'],
 			demandOption: false,
 			default: 'jsapi',
 		},

@@ -35,7 +35,7 @@ const create = {
 		type: {
 			alias: 't',
 			describe: 'A project template',
-			choices: ['jsapi', 'rollup'],
+			choices: ['jsapi', 'vite'],
 			demandOption: false,
 			default: 'jsapi',
 		},
@@ -44,7 +44,7 @@ const create = {
 	async handler(argv: CreatArgs): Promise<void> {
 		console.info(chalk.underline(`Creating ArcGIS project: ${argv.name}\n`));
 
-		if (argv.type === 'jsapi' || argv.type === 'rollup') {
+		if (argv.type === 'jsapi' || argv.type === 'vite') {
 			return await createApp({ argv });
 		} else {
 			console.info(chalk.red(`Unknown app template "${argv.type}.\n`));

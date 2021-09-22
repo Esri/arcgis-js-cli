@@ -4,7 +4,9 @@ import MapView from '@arcgis/core/views/MapView';
 import FeatureLayer from '@arcgis/core/layers/FeatureLayer';
 import { initWidgets } from './widgets';
 
-config.apiKey = process.env.API_KEY as string;
+import './style.css';
+
+config.apiKey = import.meta.env.VITE_API_KEY as string;
 
 const featureLayer = new FeatureLayer({
   portalItem: {
