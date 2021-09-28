@@ -56,7 +56,7 @@ const createWidget = async ({ argv }: any) => {
 
 	const directory = argv.type === 'exb' ? EXB : BASIC;
 
-	const target = path.resolve(process.cwd(), 'tmp');
+	const target = path.resolve(process.cwd(), 'widget');
 	const dest = path.resolve(process.cwd(), argv.type === 'exb' ? 'client' : 'src');
 	const tests = path.resolve(process.cwd(), 'tests');
 	const name = normalize(argv.name);
@@ -64,7 +64,7 @@ const createWidget = async ({ argv }: any) => {
 	try {
 		const rootDir = await pkgDir(__dirname);
 		await fse.copy(`${rootDir}/${directory}`, target, {
-			filter: (s, d) => !s.includes('DS_Store'),
+			filter: (s) => !s.includes('DS_Store'),
 		});
 		await copyUpdateFiles(readDirR(target), name);
 		await cleanDirectories(target, dest, tests, argv.type);

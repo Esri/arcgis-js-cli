@@ -93,6 +93,8 @@ Options:
 
 ### Create a new widget
 
+You can scaffold a standalone widget for use in your application. Widgets are saved into a `tmp` folder.
+
 ```sh
 $ arcgis widget <name> [type]
 
