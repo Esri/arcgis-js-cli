@@ -19,7 +19,7 @@ import { PositionalOptionsType } from 'yargs';
 
 const currentDirectory = compose(last, split('/'));
 
-type InitArgs = {
+export type InitArgs = {
 	type: string;
 	name: string;
 };
