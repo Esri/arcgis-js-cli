@@ -14,7 +14,7 @@
 import chalk from 'chalk';
 import createApp from '../lib/createApp';
 
-type CreatArgs = {
+export type CreateArgs = {
 	name: string;
 	dest?: string;
 	type: string;
@@ -41,7 +41,7 @@ const create = {
 		},
 	},
 
-	async handler(argv: CreatArgs): Promise<void> {
+	async handler(argv: CreateArgs): Promise<void> {
 		console.info(chalk.underline(`Creating ArcGIS project: ${argv.name}\n`));
 
 		if (argv.type === 'jsapi' || argv.type === 'vite') {

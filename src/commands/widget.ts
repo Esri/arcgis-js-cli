@@ -15,7 +15,7 @@ import chalk from 'chalk';
 
 import createWidget from '../lib/createWidget';
 
-type WidgetArgs = {
+export type WidgetArgs = {
 	name: string;
 	type: string;
 };

@@ -15,15 +15,15 @@
 
 import yargs from 'yargs';
 
-import create from './commands/create';
-import init from './commands/init';
-import widget from './commands/widget';
+import create, { CreateArgs } from './commands/create';
+import init, { InitArgs } from './commands/init';
+import widget, { WidgetArgs } from './commands/widget';
 
 yargs
 	.scriptName('arcgis')
-	.command(create)
-	.command(init)
-	.command(widget)
+	.command<CreateArgs>(create)
+	.command<InitArgs>(init)
+	.command<WidgetArgs>(widget)
 	/* eslint-disable @typescript-eslint/no-var-requires */
 	.command(require('./commands/styles'))
 	/* eslint-enable @typescript-eslint/no-var-requires */
