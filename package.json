@@ -16,7 +16,7 @@
     "cli"
   ],
   "scripts": {
-    "prepare": "npm run -s build",
+    "prepare": "npm run -s build && husky install",
     "clean": "rimraf dist",
     "test": "npm run clean && jest --coverage",
     "build": "npm run clean && npm run tsc && babel src --out-dir dist --extensions \".ts\" -D --ignore '*.test.ts,**/__mocks__/'&& cpy --parents preview/ dist/",
@@ -28,15 +28,11 @@
     "dist",
     "templates"
   ],
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "*.{ts,tsx}": [
       "eslint --fix"
-    ]
+    ],
+    "*.js": "eslint --cache --fix"
   },
   "jest": {
     "testEnvironment": "node",
