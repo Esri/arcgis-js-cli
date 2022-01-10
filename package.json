@@ -107,7 +107,8 @@
     "useTabs": true
   },
   "dependencies": {
-    "arcgis-js-api": "^4.20.2",
+    "@esri/calcite-components": "1.0.0-beta.69",
+    "arcgis-js-api": "4.22.2",
     "browser-sync": "^2.27.5",
     "chalk": "^4.1.2",
     "chokidar": "^3.5.2",
@@ -115,7 +116,6 @@
     "cpy": "^8.1.2",
     "cross-spawn-promise": "^0.10.2",
     "del": "^6.0.0",
-    "fibers": "^5.0.0",
     "fs-extra": "^10.0.0",
     "inquirer": "^8.1.5",
     "lodash.camelcase": "^4.3.0",

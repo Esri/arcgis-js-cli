@@ -1,9 +1,7 @@
 import { promises as fs } from 'fs';
 import { create, Options } from 'browser-sync';
 import sass from 'sass';
-import fiber from 'fibers';
 import chokidar from 'chokidar';
-import pify from 'pify';
 import { listThemes } from './list';
 import { Arguments, Argv } from 'yargs';
 import { debug, error, info, log } from '../../lib/messaging';
@@ -16,7 +14,6 @@ interface PreviewArgs {
 }
 
 const bs = create();
-const sassRender = pify(sass.render);
 
 // yargs exports
 export const command = 'preview [theme]';
@@ -42,11 +39,13 @@ export async function compileTheme(
 	themeName: string,
 	destinationDir = buildPath('<cwd>/<workspace>', dirs),
 ): Promise<void> {
-	const contents = await sassRender({
-		file: buildPath(`<cwd>/${themeName}/main.scss`, dirs),
-		fiber,
-		outputStyle: 'compressed',
-		includePaths: [buildPath(`<cwd>/${themeName}/<base>`, dirs), buildPath('<cwd>/<workspace>/<base>', dirs)],
+	const contents = await sass.compile(buildPath(`<cwd>/${themeName}/main.scss`, dirs), {
+		style: 'compressed',
+		loadPaths: [
+			buildPath(`<cwd>/${themeName}/<base>`, dirs),
+			buildPath('<cwd>/<workspace>/<base>', dirs),
+			buildPath('<nodeModules>', dirs)
+		],
 	});
 
 	await ensureDir(destinationDir);
