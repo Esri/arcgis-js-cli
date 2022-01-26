@@ -57,7 +57,7 @@ export async function scaffold(workspacePath: string, force = false): Promise<vo
 
 	debug(`copying preview file`);
 
-	await cpy('preview/', buildPath(`${workspacePath}/<preview>`, dirs), {
+	await cpy('preview', buildPath(`${workspacePath}/<preview>`, dirs), {
 		cwd: buildPath(`<dirname>/../../`, dirs),
 	});
 
