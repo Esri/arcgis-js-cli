@@ -3,7 +3,7 @@ import { Argv } from 'yargs';
 // yargs exports
 export const command = 'styles <subcommand>';
 export const describe = 'Run subcommands to work with a custom CSS theme';
-export const builder = (yargs: Argv) => {
+export const builder = (yargs: Argv): unknown => {
 	/* eslint-disable @typescript-eslint/no-var-requires */
 	return yargs
 		.command(require('./styles/create'))
@@ -18,4 +18,4 @@ export const builder = (yargs: Argv) => {
 export const handler = noop;
 
 // internals
-function noop() {}
+function noop(): void {}
