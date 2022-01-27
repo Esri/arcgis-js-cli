@@ -13,13 +13,13 @@
 
 import path from 'path';
 import fs from 'fs';
-import fse from 'fs-extra';
+import cpy from 'cpy';
 import chalk from 'chalk';
 import pkgDir from 'pkg-dir';
 import camelCase from 'lodash.camelcase';
 import startCase from 'lodash.startcase';
 
-import { compose, map, replace, toLower } from 'ramda';
+import { compose, replace } from 'ramda';
 
 import cleanDirectories from './cleanDirectories';
 import copyUpdateFiles from './copyUpdateFiles';
@@ -37,7 +37,7 @@ const createWidget = async ({ argv }: any) => {
 	try {
 		const data: any = await fs.promises.readFile(path.resolve(process.cwd(), 'package.json'));
 		pkg = JSON.parse(data);
-		console.log(pkg);
+
 		if (!pkg || (pkg && pkg.arcgis.type !== 'jsapi' && pkg.arcgis.type !== 'exb')) {
 			console.info(
 				chalk.red.bold(
@@ -63,13 +63,13 @@ const createWidget = async ({ argv }: any) => {
 
 	try {
 		const rootDir = await pkgDir(__dirname);
-		await fse.copy(`${rootDir}/${directory}`, target, {
-			filter: (s) => !s.includes('DS_Store'),
+		await cpy(`${rootDir}/${directory}`, target, {
+			filter: (s) => !s.path.includes('DS_Store'),
 		});
 		await copyUpdateFiles(readDirR(target), name);
 		await cleanDirectories(target, dest, tests, argv.type);
 	} catch (error) {
-		console.info(chalk.red.bold(`Widget creation failed: ${error.message}\n`));
+		console.error(chalk.red.bold(`Widget creation failed: ${error.message}\n`));
 		return Promise.reject(new Error(`Widget creation failed: ${error.message}`));
 	}
 };
