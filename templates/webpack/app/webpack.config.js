@@ -88,7 +88,6 @@ export default (_, args) => {
 
     // Output parameters.
     output: {
-      // path: path.join(__dirname, 'dist'),
       filename: '[name].[chunkhash].js',
       chunkFilename: 'chunks/[id].js',
       publicPath: outputPublicPath,
