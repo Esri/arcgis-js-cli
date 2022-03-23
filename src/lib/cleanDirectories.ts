@@ -22,8 +22,6 @@ const cleanDirectories = async (target: string, dest: string, tests: string, typ
 			rimraf(`${target}/tests/unit/widgets/WidgetName/`, async () => {
 				await del([`${target}/src/widgets/WidgetName.tsx`]);
 				rimraf(`${target}/src/widgets/WidgetName/`, async () => {
-					await copy(`${target}/src/`, dest + '/');
-					await copy(`${target}/tests/`, tests + '/');
 					rimraf(`${target}/**`, resolve);
 				});
 			});
