@@ -11,6 +11,12 @@
 
 This CLI will allow you to quickly scaffold various applications for the [ArcGIS API for JavaScript](https://developers.arcgis.com/javascript/).
 
+> NOTE: It is highly recommended that you use [Vite](https://vitejs.dev/) directly to build your apps. We also provide a number of [application samples](https://github.com/Esri/jsapi-resources/tree/master/esm-samples) that you can use. The 4.25 release of this CLI will most likely be the last release. There are other tools already suited for using existing repositories for applications, such as [degit](https://github.com/Rich-Harris/degit).
+
+## 4.25 Breaking Changes
+
+There is no longer a webpack template provided for this CLI. The only application template uses [Vite](https://vitejs.dev/). You can find webpack application sample [here](https://github.com/Esri/jsapi-resources/tree/master/esm-samples/webpack).
+
 ## Usage
 
 ### Prerequisites
@@ -44,14 +50,9 @@ Commands:
 
 ## Quick Start
 
-> default template webpack application
+> template application
 ```sh
 arcgis create jsapi-app
-```
-
-> vite template application
-```sh
-arcgis create jsapi-vite-app -t vite
 ```
 
 ## Sample Apps
@@ -73,7 +74,7 @@ Options:
   --version   Show version number                                                        [boolean]
   --name, -n  directory and package name for the new app
   --dest      Directory to create the application in                                     [default: <name>]
-  --type, -t  A project template           [choices: "jsapi". "vite"] [default: "jsapi"]
+  --type, -t  A project template           [choices: "jsapi"] [default: "jsapi"]
   -h, --help  Show help                                                                  [boolean]
 
 ```
@@ -87,7 +88,7 @@ Initialize a new application in current directory
 
 Options:
   --version   Show version number                                                        [boolean]
-  --type, -t  A project template           [choices: "jsapi". "vite"]                  [default: "jsapi"]
+  --type, -t  A project template           [choices: "jsapi"]                  [default: "jsapi"]
   -h, --help  Show help                                                                  [boolean]
 ```
 
@@ -251,7 +252,7 @@ Anyone and everyone is welcome to [contribute](CONTRIBUTING.md). We do accept pu
 4. Improve documentation
 
 ## Licensing
-Copyright 2020 Esri
+Copyright 2022 Esri
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 

@@ -1,9 +1,27 @@
-/* eslint-disable  @typescript-eslint/no-explicit-any */
+import { expect, describe, it, vi } from 'vitest';
 import { initWidgets } from './widgets';
 
-jest.mock('@arcgis/core/widgets/LayerList');
-jest.mock('@arcgis/core/widgets/Legend');
-jest.mock('@arcgis/core/widgets/Search');
+vi.mock('@arcgis/core/widgets/LayerList', () => {
+  return {
+    default: vi.fn(() => ({})),
+  };
+});
+vi.mock('@arcgis/core/widgets/Legend', () => {
+  return {
+    default: vi.fn(() => ({})),
+  };
+});
+vi.mock('@arcgis/core/widgets/Search', () => {
+  return {
+    default: vi.fn(() => ({})),
+  };
+});
+
+vi.mock('@arcgis/core/widgets/Search/LayerSearchSource', () => {
+  return {
+    default: vi.fn(() => ({})),
+  };
+});
 
 describe('widgets', () => {
   it('initializes widgets in view', () => {

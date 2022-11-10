@@ -1,5 +1,5 @@
 /*
-  Copyright 2020 Esri
+  Copyright 2022 Esri
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
   You may obtain a copy of the License at
@@ -15,33 +15,33 @@
 /* global jest */
 
 const succeed = jest.fn((...args) => {
-  return new Promise((resolve, reject) => {
-    process.nextTick(() => resolve());
-  });
+	return new Promise((resolve, reject) => {
+		process.nextTick(() => resolve());
+	});
 });
 
-const ora = jest.fn().mockImplementation(args => {
-  ora.__text = args.text;
-  return {
-    start: jest.fn(() => {
-      return {
-        info() {},
-        start() {},
-        stop() {},
-        fail() {},
-        get text() {
-          return ora.__text;
-        },
-        set text(v) {
-          ora.__text = v;
-        },
-        succeed
-      };
-    }),
-    stop() {},
-    succeed,
-    fail() {}
-  };
+const ora = jest.fn().mockImplementation((args) => {
+	ora.__text = args.text;
+	return {
+		start: jest.fn(() => {
+			return {
+				info() {},
+				start() {},
+				stop() {},
+				fail() {},
+				get text() {
+					return ora.__text;
+				},
+				set text(v) {
+					ora.__text = v;
+				},
+				succeed,
+			};
+		}),
+		stop() {},
+		succeed,
+		fail() {},
+	};
 });
 
 ora.__succeed = succeed;

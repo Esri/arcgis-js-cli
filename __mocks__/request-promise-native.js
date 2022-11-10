@@ -1,5 +1,5 @@
 /*
-  Copyright 2020 Esri
+  Copyright 2022 Esri
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
   You may obtain a copy of the License at
@@ -12,38 +12,35 @@
 */
 
 const templates = [
-  {
-    name: "storymap",
-    full_name: "Esri/storymap"
-  },
-  {
-    name: "maptemplate",
-    full_name: "Esri/maptemplate"
-  }
+	{
+		name: 'storymap',
+		full_name: 'Esri/storymap',
+	},
+	{
+		name: 'maptemplate',
+		full_name: 'Esri/maptemplate',
+	},
 ];
 
 const storymaps = [
-  {
-    name: "storymap",
-    full_name: "Esri/storymap"
-  },
-  {
-    name: "storymap-journal",
-    full_name: "Esri/storymap-journal"
-  }
+	{
+		name: 'storymap',
+		full_name: 'Esri/storymap',
+	},
+	{
+		name: 'storymap-journal',
+		full_name: 'Esri/storymap-journal',
+	},
 ];
 
-export default function request (options) {
-  let items;
-  if (options.uri.includes("template")) {
-    items = templates;
-  }
-  else {
-    items = storymaps;
-  }
-  return new Promise((resolve, reject) => {
-    process.nextTick(
-        () => resolve({ items })
-    );
-  });
+export default function request(options) {
+	let items;
+	if (options.uri.includes('template')) {
+		items = templates;
+	} else {
+		items = storymaps;
+	}
+	return new Promise((resolve, reject) => {
+		process.nextTick(() => resolve({ items }));
+	});
 }

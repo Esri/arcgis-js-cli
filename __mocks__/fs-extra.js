@@ -1,5 +1,5 @@
 /*
-  Copyright 2020 Esri
+  Copyright 2022 Esri
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
   You may obtain a copy of the License at
@@ -19,21 +19,19 @@ const fse = {};
 fse.__RETURN = null;
 
 const copy = jest.fn((...args) => {
-  return new Promise((resolve, reject) => {
-    process.nextTick(
-        () => resolve()
-    );
-  });
+	return new Promise((resolve, reject) => {
+		process.nextTick(() => resolve());
+	});
 });
 
 const readFile = jest.fn((...args) => {
-  const file = `{
+	const file = `{
     "name": "Sam"
   }`;
-  let result = fse.__RETURN ? fse.__RETURN : file;
-  return new Promise((resolve, reject) => {
-    process.nextTick(() => resolve(result));
-  });
+	let result = fse.__RETURN ? fse.__RETURN : file;
+	return new Promise((resolve, reject) => {
+		process.nextTick(() => resolve(result));
+	});
 });
 
 fse.copy = copy;

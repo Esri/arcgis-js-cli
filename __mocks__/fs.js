@@ -1,6 +1,6 @@
 /* eslint spaced-comment:0 */
 /*
-  Copyright 2020 Esri
+  Copyright 2022 Esri
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
   You may obtain a copy of the License at
@@ -19,9 +19,9 @@ const existsSync = jest.fn((...args) => true);
 const mkdirSync = jest.fn((...args) => {});
 
 const statSync = jest.fn((...args) => {
-  return {
-    isDirectory: jest.fn(() => true)
-  };
+	return {
+		isDirectory: jest.fn(() => true),
+	};
 });
 
 const readdirSync = jest.fn(() => []);
@@ -29,8 +29,8 @@ const readdirSync = jest.fn(() => []);
 const rmdir = jest.fn((...args) => []);
 
 export const promises = {
-  writeFile: jest.fn((...args) => []),
-  readFile: jest.fn((...args) => {})
+	writeFile: jest.fn((...args) => []),
+	readFile: jest.fn((...args) => {}),
 };
 
 fs.statSync = statSync;

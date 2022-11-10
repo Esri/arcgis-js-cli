@@ -1,6 +1,6 @@
 /* eslint spaced-comment:0 */
 /*
-  Copyright 2020 Esri
+  Copyright 2022 Esri
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
   You may obtain a copy of the License at
@@ -18,19 +18,19 @@ const fsp = {};
 fsp.__RETURN = null;
 
 const readFile = jest.fn((...args) => {
-  const file = `{
+	const file = `{
     "name": "Sam"
   }`;
-  let result = fsp.__RETURN ? fsp.__RETURN : file;
-  return new Promise((resolve, reject) => {
-    process.nextTick(() => resolve(result));
-  });
+	let result = fsp.__RETURN ? fsp.__RETURN : file;
+	return new Promise((resolve, reject) => {
+		process.nextTick(() => resolve(result));
+	});
 });
 
 const writeFile = jest.fn((...args) => {
-  return new Promise((resolve, reject) => {
-    process.nextTick(() => resolve());
-  });
+	return new Promise((resolve, reject) => {
+		process.nextTick(() => resolve());
+	});
 });
 
 fsp.readFile = readFile;

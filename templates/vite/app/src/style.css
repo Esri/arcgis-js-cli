@@ -1,7 +1,7 @@
 /*************************************************
   Custom ArcGIS JavaScript API theming.
 *************************************************/
-@import url("https://js.arcgis.com/4.21/esri/themes/light/main.css");
+@import url("https://js.arcgis.com/4.25/esri/themes/light/main.css");
 
 @import "./_variables.css";
 
