@@ -29,7 +29,7 @@
 		"templates"
 	],
 	"lint-staged": {
-		"*.{ts}": [
+		"*.ts": [
 			"eslint"
 		],
 		"*.js": "eslint --cache --fix"
