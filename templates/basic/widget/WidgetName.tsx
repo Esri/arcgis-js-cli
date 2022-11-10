@@ -2,11 +2,14 @@ import { property, subclass } from '@arcgis/core/core/accessorSupport/decorators
 
 import { tsx } from '@arcgis/core/widgets/support/widget';
 
+import type MapView from '@arcgis/core/views/MapView';
+import type SceneView from '@arcgis/core/views/SceneView';
+
 import Widget from '@arcgis/core/widgets/Widget';
 
 import <%name%>ViewModel from './<%name%>/<%name%>ViewModel';
 
-export interface <%name%>Properties extends esri.WidgetProperties {
+export interface <%name%>Properties extends __esri.WidgetProperties {
   /**
    * Your name.
    */
@@ -17,7 +20,7 @@ export interface <%name%>Properties extends esri.WidgetProperties {
    * https://developers.arcgis.com/javascript/latest/api-reference/esri-views-SceneView.html
    * 
    */
-  view?: esri.MapView | esri.SceneView;
+  view?: MapView | SceneView;
 }
 
 const CSS = {
@@ -29,7 +32,7 @@ export default class <%name%> extends Widget {
   @property({
     aliasOf: 'viewModel.view',
   })
-  view!: esri.MapView | esri.SceneView;
+  view!: MapView | SceneView;
 
   @property({
     aliasOf: 'viewModel.name',
