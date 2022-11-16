@@ -7,7 +7,7 @@ import type SceneView from '@arcgis/core/views/SceneView';
 
 import Widget from '@arcgis/core/widgets/Widget';
 
-import <%name%>ViewModel from './<%name%>/<%name%>ViewModel';
+import <%name%>ViewModel from './<%name%>ViewModel';
 
 export interface <%name%>Properties extends __esri.WidgetProperties {
   /**

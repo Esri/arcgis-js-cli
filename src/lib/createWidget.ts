@@ -63,11 +63,14 @@ const createWidget = async ({ argv }: any) => {
 
 	try {
 		const rootDir = await pkgDir(__dirname);
+		console.log('root', `${rootDir}/${directory}`);
+		console.log('dest', dest);
+		console.log('target', target);
 		await cpy(`${rootDir}/${directory}`, target, {
 			filter: (s) => !s.path.includes('DS_Store'),
 		});
 		await copyUpdateFiles(readDirR(target), name);
-		await cleanDirectories(target, dest, tests, argv.type);
+		// await cleanDirectories(target, dest, tests, argv.type);
 	} catch (error) {
 		console.error(chalk.red.bold(`Widget creation failed: ${error.message}\n`));
 		return Promise.reject(new Error(`Widget creation failed: ${error.message}`));

@@ -13,6 +13,7 @@
 
 import fse from 'fs-extra';
 import chalk from 'chalk';
+import del from 'del';
 import { compose, map, replace, toLower } from 'ramda';
 
 const nameTplLower = compose(replace(/<%name-lower%>/g), toLower);
@@ -30,12 +31,14 @@ const copyUpdateFiles = (files: string[] = [], name: string): Promise<any> => {
 			.then(() => {
 				return fse.readFile(filename, 'utf-8');
 			})
-			.then((file) => {
+			.then(async (file) => {
 				const updatedFile = nameUpdate(file);
+				await del(filename);
+				console.log('Successfully written: ', updatedFileName);
 				return fse.writeFile(updatedFileName, updatedFile);
 			});
 	});
-	return Promise.all(updateFiles(files));
+	return Promise.allSettled(updateFiles(files)).catch((error) => console.log(error));
 };
 
 export default copyUpdateFiles;

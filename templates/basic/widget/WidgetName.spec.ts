@@ -1,4 +1,4 @@
-import <%name%>ViewModel from './<%name%>/<%name%>ViewModel';
+import <%name%>ViewModel from './<%name%>ViewModel';
 
 describe('app/<%name%>/<%name%>ViewModel', () => {
   let viewModel: <%name%>ViewModel;

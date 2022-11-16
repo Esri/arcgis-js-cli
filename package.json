@@ -29,9 +29,6 @@
 		"templates"
 	],
 	"lint-staged": {
-		"*.ts": [
-			"eslint --fix"
-		],
 		"*.js": "eslint --cache --fix"
 	},
 	"jest": {

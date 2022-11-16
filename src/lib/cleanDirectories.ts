@@ -12,21 +12,10 @@
 */
 
 import copy from 'recursive-copy';
-import del from 'del';
 import rimraf from 'rimraf';
 
-const cleanDirectories = async (target: string, dest: string, tests: string, type: string) => {
-	if (type === 'jsapi') {
-		return new Promise(async (resolve) => {
-			await del([`${target}/tests/unit/widgets/WidgetName.tsx`]);
-			rimraf(`${target}/tests/unit/widgets/WidgetName/`, async () => {
-				await del([`${target}/src/widgets/WidgetName.tsx`]);
-				rimraf(`${target}/src/widgets/WidgetName/`, async () => {
-					rimraf(`${target}/**`, resolve);
-				});
-			});
-		});
-	} else if (type === 'exb') {
+const cleanDirectories = async (target: string, dest: string, _tests: string, type: string) => {
+	if (type === 'exb') {
 		return new Promise(async (resolve) => {
 			rimraf(`${target}/client/your-extensions/widgets/WidgetName/`, async () => {
 				await copy(`${target}/client/`, dest + '/');

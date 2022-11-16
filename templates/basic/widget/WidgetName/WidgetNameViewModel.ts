@@ -3,6 +3,8 @@ import { whenOnce } from '@arcgis/core/core/watchUtils';
 import { property, subclass } from '@arcgis/core/core/accessorSupport/decorators';
 
 import Accessor from '@arcgis/core/core/Accessor';
+import type MapView from '@arcgis/core/views/MapView';
+import type SceneView from '@arcgis/core/views/SceneView';
 
 export interface <%name%>ViewModelProperties extends Object {
   /**
@@ -15,13 +17,13 @@ export interface <%name%>ViewModelProperties extends Object {
    * https://developers.arcgis.com/javascript/latest/api-reference/esri-views-SceneView.html
    * 
    */
-  view?: esri.MapView | esri.SceneView;
+  view?: MapView | SceneView;
 }
 
-@subclass('app/<%name%>/<%name%>ViewModel')
+@subclass('app.widgets.<%name%>ViewModel')
 export default class <%name%>ViewModel extends Accessor {
   @property()
-  view!: esri.MapView | esri.SceneView;
+  view!: MapView | SceneView;
 
   @property()
   name = 'Slagathor';
@@ -31,7 +33,7 @@ export default class <%name%>ViewModel extends Accessor {
     whenOnce(this, 'view', this.init.bind(this));
   }
 
-  init(view: esri.MapView | esri.SceneView) {
+  init(view: MapView | SceneView) {
     console.log(view.scale);
   }
 }
