@@ -9,7 +9,7 @@
 [travis-img]: https://img.shields.io/travis/Esri/arcgis-js-cli/master.svg?style=flat-square
 [travis-url]: https://travis-ci.org/Esri/arcgis-js-cli
 
-This CLI will allow you to quickly scaffold various applications for the [ArcGIS API for JavaScript](https://developers.arcgis.com/javascript/).
+This CLI will allow you to quickly scaffold various applications for the [ArcGIS Maps SDK JavaScript](https://developers.arcgis.com/javascript/).
 
 > NOTE: It is highly recommended that you use [Vite](https://vitejs.dev/) directly to build your apps. We also provide a number of [application samples](https://github.com/Esri/jsapi-resources/tree/master/esm-samples) that you can use. The 4.25 release of this CLI will most likely be the last release. There are other tools already suited for using existing repositories for applications, such as [degit](https://github.com/Rich-Harris/degit).
 
@@ -159,7 +159,7 @@ Positionals:
 Options:
       --version            Show version number                             [boolean]
       -e, --with-examples  when specified, the created theme will include examples
-                           from the API                                    [boolean]
+                           from the SDK                                    [boolean]
       -b, --with-base      when specified, the created theme will include base files
                            for local overrides (advanced)                  [boolean]
       -f, --force          overwrites a theme if it already exists         [boolean]
