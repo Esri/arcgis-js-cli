@@ -6,15 +6,15 @@ This application is written in [TypeScript](http://www.typescriptlang.org/) and 
 
 You can develop, test, and build the application using various commands.
 
-You will need to create an [SDK Key](https://developers.arcgis.com/documentation/mapping-apis-and-services/security/#api-keys) using a free [ArcGIS Developer Account](https://developers.arcgis.com/sign-up/).
+You will need to create an [API Key](https://developers.arcgis.com/documentation/mapping-apis-and-services/security/#api-keys) using a free [ArcGIS Developer Account](https://developers.arcgis.com/sign-up/).
 
-Add your SDK Key to a `.env` file at the root of this project.
+Add your API Key to a `.env` file at the root of this project.
 
 ```
 VITE_API_KEY=MY-DEVELOPER-API-KEY
 ```
 
-Vite will pick up the SDK Key for use in your application.
+Vite will pick up the API Key for use in your application.
 
 Run the application in development mode with a local development server.
 ```sh
