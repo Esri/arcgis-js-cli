@@ -23,7 +23,7 @@ export const builder = (yargs: Argv) => {
 		})
 		.option('with-examples', {
 			alias: 'e',
-			describe: 'when specified, the created theme will include examples from the API',
+			describe: 'when specified, the created theme will include examples from the SDK',
 			type: 'boolean',
 		})
 		.option('with-base', {

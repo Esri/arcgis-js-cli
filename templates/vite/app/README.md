@@ -1,4 +1,4 @@
-# ArcGIS API for JavaScript Template Application
+# ArcGIS Maps SDK for JavaScript Template Application
 
 ## Usage
 

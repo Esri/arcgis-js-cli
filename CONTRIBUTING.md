@@ -9,13 +9,13 @@ Esri welcomes contributions from anyone and everyone. Please see our [guidelines
 
 ## Getting Involved
 
-Third-party patches are absolutely essential on our quest to create the best maps app with the ArcGIS API for JavaScript.
+Third-party patches are absolutely essential on our quest to create the best maps app with the ArcGIS Maps SDK for JavaScript.
 However, they're not the only way to get involved with the development of `@arcgis/cli`.
 You can help the project tremendously by discovering and [reporting bugs](#reporting-bugs),
 [improving documentation](#improving-documentation),
 helping others with [GitHub issues](https://github.com/Esri/arcgis-js-cli/issues),
 tweeting to [@ArcGISJSAPI](https://twitter.com/ArcGISJSAPI),
-and spreading the word about mapps-app-javascript and the [ArcGIS API for JavaScript](https://developers.arcgis.com/javascript/) among your colleagues and friends.
+and spreading the word about mapps-app-javascript and the [ArcGIS Maps SDK for JavaScript](https://developers.arcgis.com/javascript/) among your colleagues and friends.
 
 ## Reporting Bugs
 
@@ -25,7 +25,7 @@ Second, search through the reported issues for your issue,
 and if it's already reported, just add any additional details in the comments.
 
 Also, please only report issues related to the `@arcgis/cli`.
-If your issue is related to the ArcGIS API for JavaScript, please contact [Esri Tech Support](https://support.esri.com/contact-tech-support) or ask the Esri community on [GeoNet](https://geonet.esri.com/community/developers/web-developers/arcgis-api-for-javascript).
+If your issue is related to the ArcGIS Maps SDK for JavaScript, please contact [Esri Tech Support](https://support.esri.com/contact-tech-support) or ask the Esri community on [GeoNet](https://geonet.esri.com/community/developers/web-developers/arcgis-api-for-javascript).
 
 After you made sure that you've found a new `@arcgis/cli` bug,
 please use the provided issue template when creating your issue.
