@@ -107,6 +107,7 @@
 		"useTabs": true
 	},
 	"dependencies": {
+        "arcgis-js-api": "4.25.5",
 		"browser-sync": "^2.27.5",
 		"chalk": "^4.1.2",
 		"chokidar": "^3.5.2",
