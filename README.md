@@ -2,7 +2,7 @@
 
 | :warning: This repository has been archived  |
 | :--------------------------------------------|
-| **This package is no longer supported. Use at your owwn risk.** |
+| **This package is no longer supported. Use at your own risk.** |
 
 This CLI will allow you to quickly scaffold various applications for the [ArcGIS Maps SDK JavaScript](https://developers.arcgis.com/javascript/).
 
