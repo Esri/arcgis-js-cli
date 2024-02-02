@@ -1,13 +1,8 @@
-# @arcgis/cli
+# @arcgis/cli (Deprecated)
 
-[![npm version][npm-img]][npm-url]
-[![build status][travis-img]][travis-url]
-[![apache licensed](https://img.shields.io/badge/license-Apache%202.0-orange.svg?style=flat-square)](https://raw.githubusercontent.com/Esri/arcgis-js-cli/master/LICENSE)
-
-[npm-img]: https://img.shields.io/npm/v/@arcgis/cli.svg?style=flat-square
-[npm-url]: https://www.npmjs.com/package/@arcgis/cli
-[travis-img]: https://img.shields.io/travis/Esri/arcgis-js-cli/master.svg?style=flat-square
-[travis-url]: https://travis-ci.org/Esri/arcgis-js-cli
+| :warning: This repository has been archived  |
+| :--------------------------------------------|
+| **This package is no longer supported. Use at your owwn risk.** |
 
 This CLI will allow you to quickly scaffold various applications for the [ArcGIS Maps SDK JavaScript](https://developers.arcgis.com/javascript/).
 
@@ -239,17 +234,6 @@ Options:
       -f, --force    forces creation of project scaffolding                [boolean]
       -h, --help     Show help                                             [boolean]
 ```
-
-## Issues
-Find a bug or want to request a new feature enhancement?  Let us know by submitting an issue.
-
-## Contributing
-Anyone and everyone is welcome to [contribute](CONTRIBUTING.md). We do accept pull requests.
-
-1. Get involved
-2. Report issues
-3. Contribute code
-4. Improve documentation
 
 ## Licensing
 Copyright 2022 Esri
